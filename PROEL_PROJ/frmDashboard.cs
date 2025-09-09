@@ -16,7 +16,9 @@ namespace PROEL_PROJ
         public frmDashboard()
         {
             InitializeComponent();
+            
         }
+
         string connectionString = Classes.ConString();
         private void frmDashboard_Load(object sender, EventArgs e)
         {
@@ -25,16 +27,36 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
 
-            //show the database
             using (SqlConnection sqlCOn = new SqlConnection(connectionString))
             {
                 sqlCOn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT \r\n    r.Firstname + ' ' + r.Lastname AS Fullname,\r\n    r.Age,\r\n    r.Gender,\r\n    r.Email,\r\n    r.Username,\r\n    r.Password,\r\n    ro.RoleName\r\nFROM Profiles r\r\nINNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN' AND ro.RoleName <> 'INSTRUCTOR';", sqlCOn);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT r.Firstname, r.Lastname,  r.Age, r.Gender, r.Email, ro.RoleName " +
+                    "FROM Profiles r INNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN' AND ro.RoleName <> 'INSTRUCTOR';", sqlCOn);
                 DataTable dt = new DataTable();
                 sqlDa.Fill(dt);
 
                 dgvTotal_Stud.DataSource = dt;
             }
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation", 
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                frmLogIn logIn = new frmLogIn();
+                this.Hide();
+                logIn.ShowDialog();
+            }
+            else{ }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            frmUpdate_Stud update = new frmUpdate_Stud();
+            this.Hide();
+            update.ShowDialog();
         }
     }
 }

@@ -65,6 +65,12 @@
     <Compile Include="frmSign_Up.Designer.cs">
       <DependentUpon>frmSign_Up.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdate_Stud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdate_Stud.Designer.cs">
+      <DependentUpon>frmUpdate_Stud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSign_Up.resx">
       <DependentUpon>frmSign_Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdate_Stud.resx">
+      <DependentUpon>frmUpdate_Stud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +116,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logouts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

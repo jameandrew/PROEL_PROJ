@@ -13,10 +13,13 @@ namespace PROEL_PROJ
 {
     public partial class frmLogIn : Form
     {
-
+        private Classes classes;
+        private static int loginAttempts = 0;
+        private const int MaxAttempts = 3;
         public frmLogIn()
         {
             InitializeComponent();
+            classes = new Classes();
         }
 
         string connectionString = Classes.ConString();
@@ -32,33 +35,39 @@ namespace PROEL_PROJ
             }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand("Log_User", connection))
             {
-                SqlCommand cmd = new SqlCommand("Log_User", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@USERNAME", txtUname.Text.Trim());
-                cmd.Parameters.AddWithValue("@PASSWORD", txtPword.Text.Trim());
+                cmd.Parameters.AddWithValue("@USERNAME", username);
+                cmd.Parameters.AddWithValue("@PASSWORD", plainPassword);
 
                 connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (!reader.HasRows)
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    MessageBox.Show("No matching rows returned from SQL.");
-                }
+                    if (reader.Read())
+                    {
+                        string role = reader["RoleName"].ToString();
+                        MessageBox.Show($"Log-In Successfully, Welcome: {username} ({role})");
 
-                if (reader.Read())
-                {
-                    string role = reader["RoleName"].ToString();
-                    MessageBox.Show("Log-In Successfully, Welcome: " + username + " (" + role + ")");
+                        loginAttempts = 0;
+                        frmDashboard dashboard = new frmDashboard();
+                        this.Hide();
+                        dashboard.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        loginAttempts++;
+                        int remaining = MaxAttempts - loginAttempts;
 
-                    frmDashboard dashboard = new frmDashboard();
-                    this.Hide();
-                    dashboard.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid username or password.");
+                        if (remaining > 0)
+                            MessageBox.Show($"Invalid username or password. You have {remaining} attempt(s) left.");
+                        else
+                        {
+                            MessageBox.Show("Maximum login attempts reached. You are locked out.");
+                            button1.Enabled = false;
+                        }
+                    }
                 }
             }
         }

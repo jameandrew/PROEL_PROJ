@@ -1,6 +1,6 @@
 ﻿namespace PROEL_PROJ
 {
-    partial class frmDashboard
+    partial class frmUpdate_Stud
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvUpdate_Stud = new System.Windows.Forms.DataGridView();
+            this.cmbStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvTotal_Stud = new System.Windows.Forms.DataGridView();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate_Stud)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTotal_Stud)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.dgvUpdate_Stud);
+            this.panel2.Location = new System.Drawing.Point(207, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(626, 469);
+            this.panel2.TabIndex = 3;
+            // 
+            // dgvUpdate_Stud
+            // 
+            this.dgvUpdate_Stud.AllowUserToAddRows = false;
+            this.dgvUpdate_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvUpdate_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUpdate_Stud.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmbStatus});
+            this.dgvUpdate_Stud.Location = new System.Drawing.Point(27, 37);
+            this.dgvUpdate_Stud.Name = "dgvUpdate_Stud";
+            this.dgvUpdate_Stud.Size = new System.Drawing.Size(572, 395);
+            this.dgvUpdate_Stud.TabIndex = 0;
+            this.dgvUpdate_Stud.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellValueChanged);
+            this.dgvUpdate_Stud.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvUpdate_Stud_CurrentCellDirtyStateChanged);
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.HeaderText = "Status";
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ACTIVE",
+            "INACTIVE",
+            "PENDING"});
+            this.cmbStatus.Name = "cmbStatus";
             // 
             // panel1
             // 
@@ -53,7 +86,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 469);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 2;
             // 
             // btnLogOut
             // 
@@ -68,7 +101,6 @@
             this.btnLogOut.TabIndex = 4;
             this.btnLogOut.Text = "Lout Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnLogs
             // 
@@ -97,7 +129,6 @@
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDashboard
             // 
@@ -112,6 +143,7 @@
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // pictureBox1
             // 
@@ -123,54 +155,36 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.dgvTotal_Stud);
-            this.panel2.Location = new System.Drawing.Point(207, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 469);
-            this.panel2.TabIndex = 1;
-            // 
-            // dgvTotal_Stud
-            // 
-            this.dgvTotal_Stud.AllowUserToAddRows = false;
-            this.dgvTotal_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTotal_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTotal_Stud.Location = new System.Drawing.Point(0, 289);
-            this.dgvTotal_Stud.Name = "dgvTotal_Stud";
-            this.dgvTotal_Stud.Size = new System.Drawing.Size(626, 180);
-            this.dgvTotal_Stud.TabIndex = 0;
-            // 
-            // frmDashboard
+            // frmUpdate_Stud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(832, 468);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDashboard";
-            this.Text = "frmDashboard";
-            this.Load += new System.EventHandler(this.frmDashboard_Load);
+            this.Name = "frmUpdate_Stud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmUpdate_Stud";
+            this.Load += new System.EventHandler(this.frmUpdate_Stud_Load);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate_Stud)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTotal_Stud)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DataGridView dgvUpdate_Stud;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnLogs;
-        private System.Windows.Forms.DataGridView dgvTotal_Stud;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
     }
 }
