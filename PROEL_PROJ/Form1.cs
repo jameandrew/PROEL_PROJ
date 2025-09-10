@@ -50,7 +50,8 @@ namespace PROEL_PROJ
                         MessageBox.Show($"Log-In Successfully, Welcome: {username} ({role})");
 
                         loginAttempts = 0;
-                        frmDashboard dashboard = new frmDashboard();
+                        string usernameShow = txtUname.Text;
+                        frmDashboard dashboard = new frmDashboard(usernameShow);
                         this.Hide();
                         dashboard.ShowDialog();
                         this.Close();

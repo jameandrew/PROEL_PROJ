@@ -14,9 +14,6 @@ namespace PROEL_PROJ
     {
         private SqlDataAdapter sqlData;
         private DataTable dt;
-
-        
-
         public static string ConString()
         {
             return @"Data Source=DESKTOP-4A3R3RB\SQLEXPRESS;
@@ -38,7 +35,9 @@ namespace PROEL_PROJ
            
             using (SqlConnection con = new SqlConnection(ConString()))
             {
+
                 sqlData = new SqlDataAdapter("SELECT * FROM Profiles WHERE Firstname <> 'nimad' AND Lastname <> 'nimad'", con);
+                sqlData = new SqlDataAdapter("SELECT * FROM Profiles", con);
                 SqlCommandBuilder builder = new SqlCommandBuilder(sqlData);
 
                 dt = new DataTable();
@@ -71,31 +70,25 @@ namespace PROEL_PROJ
             dgv.Refresh();
         }
 
-        public void Logincount(string username, string password, Button btn)
+        public void DisplayName(string username, Label lbl)
         {
-            
-        }
-
-        public bool CheckLogin(string username, string password)
-        {
-            bool Isvalid = false;
-            ConString();
-
-            using(SqlConnection  con = new SqlConnection(ConString()))
+            using (SqlConnection con = new SqlConnection(ConString()))
             {
                 con.Open();
-                string query = "select count(*) from users where Username = @USERNAME AND Password = @PASSWORD";
-                using(SqlCommand cmd = new SqlCommand(query,con))
+                string query = "Select P.Firstname + ' ' + P.Lastname AS Fullname From Users U Inner Join Profiles P ON U.ProfileID = P.ProfileID Where U.Username = @USERNAME";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@USERNAME", username);
+
+                object result = cmd.ExecuteScalar();
+
+                if(result != null)
                 {
-                    cmd.Parameters.AddWithValue("@USERNAME", username);
-                    cmd.Parameters.AddWithValue("@PASSWORD", password);
-
-                    int count = (int)cmd.ExecuteScalar();
-                    Isvalid = count > 0;
+                    lbl.Text = result.ToString();
                 }
+                
 
-                return Isvalid;
             }
         }
+
     }
 }

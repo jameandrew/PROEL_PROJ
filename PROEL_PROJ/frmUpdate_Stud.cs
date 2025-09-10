@@ -24,9 +24,7 @@ namespace PROEL_PROJ
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            frmDashboard dashboard = new frmDashboard();
-            this.Hide();
-            dashboard.ShowDialog();
+           
         }
 
         private void dgvUpdate_Stud_CurrentCellDirtyStateChanged(object sender, EventArgs e)

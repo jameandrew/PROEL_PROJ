@@ -13,10 +13,13 @@ namespace PROEL_PROJ
 {
     public partial class frmDashboard : Form
     {
-        public frmDashboard()
+
+        private string _username;
+        Classes classes = new Classes();
+        public frmDashboard(string username)
         {
             InitializeComponent();
-            
+            _username = username;
         }
 
         string connectionString = Classes.ConString();
@@ -37,6 +40,8 @@ namespace PROEL_PROJ
 
                 dgvTotal_Stud.DataSource = dt;
             }
+
+            classes.DisplayName(_username, label2);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -52,11 +57,13 @@ namespace PROEL_PROJ
             else{ }
         }
 
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             frmUpdate_Stud update = new frmUpdate_Stud();
             this.Hide();
             update.ShowDialog();
         }
+
     }
 }
