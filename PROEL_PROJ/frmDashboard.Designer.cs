@@ -35,9 +35,9 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvTotal_Stud = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvTotal_Stud = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -136,15 +136,15 @@
             this.panel2.Size = new System.Drawing.Size(626, 469);
             this.panel2.TabIndex = 1;
             // 
-            // dgvTotal_Stud
+            // label2
             // 
-            this.dgvTotal_Stud.AllowUserToAddRows = false;
-            this.dgvTotal_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTotal_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTotal_Stud.Location = new System.Drawing.Point(0, 265);
-            this.dgvTotal_Stud.Name = "dgvTotal_Stud";
-            this.dgvTotal_Stud.Size = new System.Drawing.Size(626, 204);
-            this.dgvTotal_Stud.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label2.Location = new System.Drawing.Point(114, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 25);
+            this.label2.TabIndex = 2;
             // 
             // label1
             // 
@@ -157,16 +157,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome";
             // 
-            // label2
+            // dgvTotal_Stud
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(114, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.dgvTotal_Stud.AllowUserToAddRows = false;
+            this.dgvTotal_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvTotal_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTotal_Stud.Location = new System.Drawing.Point(0, 265);
+            this.dgvTotal_Stud.Name = "dgvTotal_Stud";
+            this.dgvTotal_Stud.Size = new System.Drawing.Size(626, 204);
+            this.dgvTotal_Stud.TabIndex = 0;
             // 
             // frmDashboard
             // 
