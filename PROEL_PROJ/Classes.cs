@@ -36,8 +36,7 @@ namespace PROEL_PROJ
             using (SqlConnection con = new SqlConnection(ConString()))
             {
 
-                sqlData = new SqlDataAdapter("SELECT * FROM Profiles WHERE Firstname <> 'nimad' AND Lastname <> 'nimad'", con);
-                sqlData = new SqlDataAdapter("SELECT * FROM Profiles", con);
+                sqlData = new SqlDataAdapter("SELECT r.ProfileID, r.Firstname, r.Lastname,  r.Age, r.Gender, r.Email, r.STATUS, ro.RoleName FROM Profiles r INNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN'", con);
                 SqlCommandBuilder builder = new SqlCommandBuilder(sqlData);
 
                 dt = new DataTable();

@@ -34,7 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnStudent = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
@@ -59,9 +59,9 @@
             this.dgvUpdate_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpdate_Stud.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmbStatus});
-            this.dgvUpdate_Stud.Location = new System.Drawing.Point(27, 37);
+            this.dgvUpdate_Stud.Location = new System.Drawing.Point(9, 135);
             this.dgvUpdate_Stud.Name = "dgvUpdate_Stud";
-            this.dgvUpdate_Stud.Size = new System.Drawing.Size(572, 395);
+            this.dgvUpdate_Stud.Size = new System.Drawing.Size(604, 321);
             this.dgvUpdate_Stud.TabIndex = 0;
             this.dgvUpdate_Stud.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellValueChanged);
             this.dgvUpdate_Stud.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvUpdate_Stud_CurrentCellDirtyStateChanged);
@@ -80,7 +80,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.btnLogs);
-            this.panel1.Controls.Add(this.btnUpdate);
+            this.panel1.Controls.Add(this.btnStudent);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -116,19 +116,18 @@
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
             // 
-            // btnUpdate
+            // btnStudent
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = global::PROEL_PROJ.Properties.Resources.updated;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(1, 219);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(209, 48);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnStudent.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudent.ForeColor = System.Drawing.Color.White;
+            this.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudent.Location = new System.Drawing.Point(1, 219);
+            this.btnStudent.Name = "btnStudent";
+            this.btnStudent.Size = new System.Drawing.Size(209, 48);
+            this.btnStudent.TabIndex = 2;
+            this.btnStudent.Text = "Student";
+            this.btnStudent.UseVisualStyleBackColor = false;
             // 
             // btnDashboard
             // 
@@ -182,7 +181,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnLogs;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;

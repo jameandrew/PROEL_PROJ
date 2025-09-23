@@ -73,6 +73,16 @@ namespace PROEL_PROJ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap graduation_cap {
+            get {
+                object obj = ResourceManager.GetObject("graduation-cap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_of_smiling_people_point_at_screen___Premium_Vector_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Group_of_smiling_people_point_at_screen___Premium_Vector-removebg-preview", resourceCulture);
@@ -116,6 +126,16 @@ namespace PROEL_PROJ.Properties {
         internal static System.Drawing.Bitmap logs {
             get {
                 object obj = ResourceManager.GetObject("logs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap previous {
+            get {
+                object obj = ResourceManager.GetObject("previous", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

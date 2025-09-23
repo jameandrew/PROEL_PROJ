@@ -25,6 +25,7 @@ namespace PROEL_PROJ
         string connectionString = Classes.ConString();
         private void frmDashboard_Load(object sender, EventArgs e)
         {
+
             Classes.ApplySidebarStyle(btnDashboard);
             Classes.ApplySidebarStyle(btnUpdate);
             Classes.ApplySidebarStyle(btnLogs);
@@ -33,8 +34,7 @@ namespace PROEL_PROJ
             using (SqlConnection sqlCOn = new SqlConnection(connectionString))
             {
                 sqlCOn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT r.Firstname, r.Lastname,  r.Age, r.Gender, r.Email, ro.RoleName " +
-                    "FROM Profiles r INNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN' AND ro.RoleName <> 'INSTRUCTOR';", sqlCOn);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT r.Firstname, r.Lastname,  r.Age, r.Gender, r.Email, ro.RoleName FROM Profiles r INNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN' AND ro.RoleName <> 'INSTRUCTOR' ORDER BY r.ProfileID DESC", sqlCOn);
                 DataTable dt = new DataTable();
                 sqlDa.Fill(dt);
 
@@ -65,5 +65,11 @@ namespace PROEL_PROJ
             update.ShowDialog();
         }
 
+        private void btnAddStud_Click(object sender, EventArgs e)
+        {
+            frmAddStud add = new frmAddStud();
+            this.Hide();
+            add.ShowDialog();
+        }
     }
 }
