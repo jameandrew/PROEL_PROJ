@@ -57,6 +57,7 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnAdd);
+            Classes.ApplySidebarStyle(btnTeacher);
 
             classes.LoadData(connectionString,dgvUpdate_Stud);
         }

@@ -52,6 +52,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtpEnrolldate = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,7 +64,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(167, 64);
+            this.label10.Location = new System.Drawing.Point(167, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(133, 30);
             this.label10.TabIndex = 6;
@@ -72,7 +74,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(275, 175);
+            this.label11.Location = new System.Drawing.Point(275, 150);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 17);
             this.label11.TabIndex = 58;
@@ -82,7 +84,7 @@
             // 
             this.txtAddress.BackColor = System.Drawing.Color.White;
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(272, 194);
+            this.txtAddress.Location = new System.Drawing.Point(272, 169);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(163, 29);
             this.txtAddress.TabIndex = 49;
@@ -91,7 +93,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(275, 234);
+            this.label5.Location = new System.Drawing.Point(275, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 17);
             this.label5.TabIndex = 57;
@@ -101,7 +103,7 @@
             // 
             this.txtPhone.BackColor = System.Drawing.Color.White;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(272, 253);
+            this.txtPhone.Location = new System.Drawing.Point(272, 228);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(163, 29);
             this.txtPhone.TabIndex = 48;
@@ -110,7 +112,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(275, 295);
+            this.label6.Location = new System.Drawing.Point(275, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 17);
             this.label6.TabIndex = 56;
@@ -120,7 +122,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(275, 113);
+            this.label4.Location = new System.Drawing.Point(275, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 17);
             this.label4.TabIndex = 55;
@@ -130,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 234);
+            this.label3.Location = new System.Drawing.Point(47, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 17);
             this.label3.TabIndex = 53;
@@ -140,7 +142,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 175);
+            this.label2.Location = new System.Drawing.Point(47, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 51;
@@ -150,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 113);
+            this.label1.Location = new System.Drawing.Point(47, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 50;
@@ -161,12 +163,13 @@
             this.btnRegister.BackColor = System.Drawing.Color.DarkGray;
             this.btnRegister.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(44, 307);
+            this.btnRegister.Location = new System.Drawing.Point(157, 337);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(163, 42);
             this.btnRegister.TabIndex = 52;
             this.btnRegister.Text = "Add";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // label9
             // 
@@ -222,7 +225,7 @@
             "MALE",
             "FEMALE",
             "PREFER NOT TO SAY"});
-            this.cmbGender.Location = new System.Drawing.Point(272, 132);
+            this.cmbGender.Location = new System.Drawing.Point(272, 107);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(163, 29);
             this.cmbGender.TabIndex = 46;
@@ -231,7 +234,7 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(272, 314);
+            this.txtEmail.Location = new System.Drawing.Point(272, 289);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 29);
             this.txtEmail.TabIndex = 47;
@@ -240,7 +243,7 @@
             // 
             this.txtAge.BackColor = System.Drawing.Color.White;
             this.txtAge.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAge.Location = new System.Drawing.Point(44, 253);
+            this.txtAge.Location = new System.Drawing.Point(44, 228);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(163, 29);
             this.txtAge.TabIndex = 45;
@@ -249,7 +252,7 @@
             // 
             this.txtLname.BackColor = System.Drawing.Color.White;
             this.txtLname.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLname.Location = new System.Drawing.Point(44, 194);
+            this.txtLname.Location = new System.Drawing.Point(44, 169);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(163, 29);
             this.txtLname.TabIndex = 44;
@@ -258,7 +261,7 @@
             // 
             this.txtFname.BackColor = System.Drawing.Color.White;
             this.txtFname.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFname.Location = new System.Drawing.Point(44, 132);
+            this.txtFname.Location = new System.Drawing.Point(44, 107);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(163, 29);
             this.txtFname.TabIndex = 43;
@@ -280,6 +283,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.dtpEnrolldate);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.txtAddress);
@@ -320,6 +325,24 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // dtpEnrolldate
+            // 
+            this.dtpEnrolldate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnrolldate.Location = new System.Drawing.Point(44, 292);
+            this.dtpEnrolldate.Name = "dtpEnrolldate";
+            this.dtpEnrolldate.Size = new System.Drawing.Size(163, 20);
+            this.dtpEnrolldate.TabIndex = 59;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(47, 270);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(104, 17);
+            this.label12.TabIndex = 60;
+            this.label12.Text = "Enrollment Date";
             // 
             // frmAddStud
             // 
@@ -368,5 +391,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dtpEnrolldate;
     }
 }

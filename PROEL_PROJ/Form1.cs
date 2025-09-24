@@ -20,6 +20,8 @@ namespace PROEL_PROJ
         {
             InitializeComponent();
             classes = new Classes();
+
+            this.AcceptButton = btnLogin;
         }
 
         string connectionString = Classes.ConString();
@@ -65,7 +67,7 @@ namespace PROEL_PROJ
                         else
                         {
                             MessageBox.Show("Maximum login attempts reached. You are locked out.");
-                            button1.Enabled = false;
+                            btnLogin.Enabled = false;
                         }
                     }
                 }

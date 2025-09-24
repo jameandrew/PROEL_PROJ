@@ -24,6 +24,7 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
+            Classes.ApplySidebarStyle(btnAdd);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

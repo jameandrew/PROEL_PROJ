@@ -16,5 +16,18 @@ namespace PROEL_PROJ
         {
             InitializeComponent();
         }
+
+        private void frmAddTeach_Load(object sender, EventArgs e)
+        {
+            Classes.transparent(btnBack);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmTeachers teachers = new frmTeachers();
+            this.Hide();
+            teachers.ShowDialog();
+        }
+
     }
 }
