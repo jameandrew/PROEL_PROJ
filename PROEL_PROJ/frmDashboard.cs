@@ -23,7 +23,8 @@ namespace PROEL_PROJ
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             Classes.ApplySidebarStyle(btnDashboard);
-            Classes.ApplySidebarStyle(btnUpdate);
+            Classes.ApplySidebarStyle(btnStudents);
+            Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
 
@@ -39,9 +40,23 @@ namespace PROEL_PROJ
             }
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
+        private void btnStudents_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation", 
+            frmUpdate_Stud update = new frmUpdate_Stud();
+            this.Hide();
+            update.ShowDialog();
+        }
+
+        private void btnTeacher_Click(object sender, EventArgs e)
+        {
+            frmTeachers teachers = new frmTeachers();
+            this.Hide();
+            teachers.ShowDialog();
+        }
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
             MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
@@ -49,14 +64,7 @@ namespace PROEL_PROJ
                 this.Hide();
                 logIn.ShowDialog();
             }
-            else{ }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            frmUpdate_Stud update = new frmUpdate_Stud();
-            this.Hide();
-            update.ShowDialog();
+            else { }
         }
     }
 }

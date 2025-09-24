@@ -19,7 +19,7 @@ namespace PROEL_PROJ
 
         public static string ConString()
         {
-            return @"Data Source=DESKTOP-4A3R3RB\SQLEXPRESS;
+            return @"Data Source=DESKTOP-KMCLQT1\SQLEXPRESS;
             Initial Catalog=FINAL_DB;Integrated Security=True";
         }
 
@@ -31,6 +31,7 @@ namespace PROEL_PROJ
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(122, 144, 117);
             btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(82, 104, 77);
+            btn.Cursor = Cursors.Hand;
         }
 
         public DataTable LoadData(string query, DataGridView dgv)
@@ -38,7 +39,7 @@ namespace PROEL_PROJ
            
             using (SqlConnection con = new SqlConnection(ConString()))
             {
-                sqlData = new SqlDataAdapter("SELECT * FROM Profiles WHERE Firstname <> 'nimad' AND Lastname <> 'nimad'", con);
+                sqlData = new SqlDataAdapter("SELECT * FROM Profiles WHERE RoleID <> 1", con);
                 SqlCommandBuilder builder = new SqlCommandBuilder(sqlData);
 
                 dt = new DataTable();
@@ -96,6 +97,16 @@ namespace PROEL_PROJ
 
                 return Isvalid;
             }
+        }
+
+        public static void transparent(Button btn)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.BackColor = Color.Transparent;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btn.Cursor = Cursors.Hand;
         }
     }
 }

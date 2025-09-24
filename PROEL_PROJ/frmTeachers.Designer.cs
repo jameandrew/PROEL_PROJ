@@ -1,6 +1,6 @@
 ﻿namespace PROEL_PROJ
 {
-    partial class frmDashboard
+    partial class frmTeachers
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvTotal_Stud = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnTeacher = new System.Windows.Forms.Button();
@@ -46,11 +47,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.dgvTotal_Stud);
             this.panel2.Location = new System.Drawing.Point(207, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(626, 469);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 3;
             // 
             // dgvTotal_Stud
             // 
@@ -74,7 +76,19 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 469);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 2;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(0, 247);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(123, 41);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Add Teacher";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnLogs
             // 
@@ -103,7 +117,7 @@
             this.btnLogOut.TabIndex = 4;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click_1);
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnTeacher
             // 
@@ -148,6 +162,7 @@
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // pictureBox1
             // 
@@ -159,19 +174,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // frmDashboard
+            // frmTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(832, 468);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDashboard";
+            this.Name = "frmTeachers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDashboard";
-            this.Load += new System.EventHandler(this.frmDashboard_Load);
+            this.Text = "frmTeachers";
+            this.Load += new System.EventHandler(this.frmTeachers_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotal_Stud)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -182,14 +196,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvTotal_Stud;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnLogs;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnTeacher;
         private System.Windows.Forms.Button btnStudents;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvTotal_Stud;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnLogs;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

@@ -53,6 +53,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddStud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStud.Designer.cs">
+      <DependentUpon>frmAddStud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddTeach.Designer.cs">
+      <DependentUpon>frmAddTeach.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,12 @@
     <Compile Include="frmSign_Up.Designer.cs">
       <DependentUpon>frmSign_Up.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTeachers.Designer.cs">
+      <DependentUpon>frmTeachers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdate_Stud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +94,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddStud.resx">
+      <DependentUpon>frmAddStud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddTeach.resx">
+      <DependentUpon>frmAddTeach.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSign_Up.resx">
       <DependentUpon>frmSign_Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTeachers.resx">
+      <DependentUpon>frmTeachers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdate_Stud.resx">
       <DependentUpon>frmUpdate_Stud.cs</DependentUpon>
@@ -134,6 +161,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\log-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduating-student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download_People_sit_around_the_table_and_exchange_opinions_one_after_another__for_free-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download-removebg-preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

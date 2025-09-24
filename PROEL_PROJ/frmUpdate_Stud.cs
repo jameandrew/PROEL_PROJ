@@ -51,7 +51,35 @@ namespace PROEL_PROJ
 
         private void frmUpdate_Stud_Load(object sender, EventArgs e)
         {
+            Classes.ApplySidebarStyle(btnDashboard);
+            Classes.ApplySidebarStyle(btnStudents);
+            Classes.ApplySidebarStyle(btnTeacher);
+            Classes.ApplySidebarStyle(btnLogs);
+            Classes.ApplySidebarStyle(btnLogOut);
+            Classes.ApplySidebarStyle(btnAdd);
+
             classes.LoadData(connectionString,dgvUpdate_Stud);
+        }
+
+        private void btnDashboard_Click_1(object sender, EventArgs e)
+        {
+            frmDashboard dashboard = new frmDashboard();
+            this.Hide();
+            dashboard.ShowDialog();
+        }
+
+        private void btnTeacher_Click(object sender, EventArgs e)
+        {
+            frmTeachers teachers = new frmTeachers();
+            this.Hide();
+            teachers.ShowDialog();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddStud addStud = new frmAddStud();
+            this.Hide();
+            addStud.ShowDialog();
         }
     }
 }

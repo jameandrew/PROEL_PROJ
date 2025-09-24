@@ -32,9 +32,11 @@
             this.dgvUpdate_Stud = new System.Windows.Forms.DataGridView();
             this.cmbStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnTeacher = new System.Windows.Forms.Button();
+            this.btnStudents = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
@@ -46,6 +48,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.dgvUpdate_Stud);
             this.panel2.Location = new System.Drawing.Point(207, 0);
             this.panel2.Name = "panel2";
@@ -59,9 +62,9 @@
             this.dgvUpdate_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpdate_Stud.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmbStatus});
-            this.dgvUpdate_Stud.Location = new System.Drawing.Point(27, 37);
+            this.dgvUpdate_Stud.Location = new System.Drawing.Point(2, 289);
             this.dgvUpdate_Stud.Name = "dgvUpdate_Stud";
-            this.dgvUpdate_Stud.Size = new System.Drawing.Size(572, 395);
+            this.dgvUpdate_Stud.Size = new System.Drawing.Size(623, 180);
             this.dgvUpdate_Stud.TabIndex = 0;
             this.dgvUpdate_Stud.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellValueChanged);
             this.dgvUpdate_Stud.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvUpdate_Stud_CurrentCellDirtyStateChanged);
@@ -78,63 +81,91 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
-            this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.btnLogs);
-            this.panel1.Controls.Add(this.btnUpdate);
+            this.panel1.Controls.Add(this.btnLogOut);
+            this.panel1.Controls.Add(this.btnTeacher);
+            this.panel1.Controls.Add(this.btnStudents);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 469);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 4;
             // 
-            // btnLogOut
+            // btnAdd
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
-            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = global::PROEL_PROJ.Properties.Resources.logouts;
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1, 377);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(209, 48);
-            this.btnLogOut.TabIndex = 4;
-            this.btnLogOut.Text = "Lout Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(3, 248);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(123, 41);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "Add Student";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnLogs
             // 
             this.btnLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
             this.btnLogs.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogs.ForeColor = System.Drawing.Color.White;
-            this.btnLogs.Image = global::PROEL_PROJ.Properties.Resources.log_file;
+            this.btnLogs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLogs.Image = global::PROEL_PROJ.Properties.Resources.log;
             this.btnLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogs.Location = new System.Drawing.Point(1, 265);
+            this.btnLogs.Location = new System.Drawing.Point(1, 311);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(209, 48);
-            this.btnLogs.TabIndex = 3;
+            this.btnLogs.TabIndex = 5;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
             // 
-            // btnUpdate
+            // btnLogOut
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = global::PROEL_PROJ.Properties.Resources.updated;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(1, 219);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(209, 48);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLogOut.Image = global::PROEL_PROJ.Properties.Resources.logout1;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1, 418);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(209, 48);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            // 
+            // btnTeacher
+            // 
+            this.btnTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnTeacher.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeacher.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnTeacher.Image = global::PROEL_PROJ.Properties.Resources.teacher;
+            this.btnTeacher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTeacher.Location = new System.Drawing.Point(1, 265);
+            this.btnTeacher.Name = "btnTeacher";
+            this.btnTeacher.Size = new System.Drawing.Size(209, 48);
+            this.btnTeacher.TabIndex = 3;
+            this.btnTeacher.Text = "Teachers";
+            this.btnTeacher.UseVisualStyleBackColor = false;
+            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
+            // 
+            // btnStudents
+            // 
+            this.btnStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnStudents.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudents.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnStudents.Image = global::PROEL_PROJ.Properties.Resources.graduating_student;
+            this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudents.Location = new System.Drawing.Point(1, 219);
+            this.btnStudents.Name = "btnStudents";
+            this.btnStudents.Size = new System.Drawing.Size(209, 48);
+            this.btnStudents.TabIndex = 2;
+            this.btnStudents.Text = "Students";
+            this.btnStudents.UseVisualStyleBackColor = false;
             // 
             // btnDashboard
             // 
             this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDashboard.Image = global::PROEL_PROJ.Properties.Resources.dashboard;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Location = new System.Drawing.Point(1, 173);
@@ -143,7 +174,7 @@
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click_1);
             // 
             // pictureBox1
             // 
@@ -160,8 +191,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 468);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUpdate_Stud";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -179,12 +210,14 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvUpdate_Stud;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnLogs;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnTeacher;
+        private System.Windows.Forms.Button btnStudents;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
