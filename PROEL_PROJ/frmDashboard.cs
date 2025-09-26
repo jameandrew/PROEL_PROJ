@@ -32,7 +32,7 @@ namespace PROEL_PROJ
             {
                 sqlCOn.Open();
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT r.Firstname, r.Lastname,  r.Age, r.Gender, r.Email, ro.RoleName " +
-                    "FROM Profiles r INNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN' AND ro.RoleName <> 'INSTRUCTOR';", sqlCOn);
+                    "FROM Profiles r INNER JOIN Roles ro ON r.RoleID = ro.RoleID WHERE ro.RoleName <> 'ADMIN' AND ro.RoleName <> 'INSTRUCTOR' ORDER BY ProfileID DESC", sqlCOn);
                 DataTable dt = new DataTable();
                 sqlDa.Fill(dt);
 
