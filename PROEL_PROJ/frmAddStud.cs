@@ -46,7 +46,7 @@ namespace PROEL_PROJ
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@PHONE", txtPhone.Text);
                 cmd.Parameters.AddWithValue("@ADDRESS", txtAddress.Text);
-                cmd.Parameters.AddWithValue("@STATUS", "PENDING");
+                cmd.Parameters.AddWithValue("@STATUS", "ACTIVE");
                 cmd.Parameters.AddWithValue("@ENROLLMENTDATE", dtpEnrolldate.Value);
 
                 connection.Open();

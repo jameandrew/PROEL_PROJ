@@ -1,6 +1,6 @@
 ﻿namespace PROEL_PROJ
 {
-    partial class frmUpdate_Stud
+    partial class frmCourse
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblInactive = new System.Windows.Forms.Label();
@@ -37,13 +35,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblPending = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlActive = new System.Windows.Forms.Panel();
             this.lblActive = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvUpdate_Stud = new System.Windows.Forms.DataGridView();
-            this.cmbStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgvCourse = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -51,41 +51,14 @@
             this.btnStudents = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlActive.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate_Stud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.btnSearch);
-            this.panel2.Controls.Add(this.txtSearch);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.pnlActive);
-            this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Controls.Add(this.dgvUpdate_Stud);
-            this.panel2.Location = new System.Drawing.Point(207, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 469);
-            this.panel2.TabIndex = 3;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::PROEL_PROJ.Properties.Resources.loupe;
-            this.btnSearch.Location = new System.Drawing.Point(419, 116);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(37, 35);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -119,11 +92,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 6);
+            this.label2.Location = new System.Drawing.Point(17, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 30);
+            this.label2.Size = new System.Drawing.Size(167, 30);
             this.label2.TabIndex = 0;
-            this.label2.Text = "InActive Student";
+            this.label2.Text = "InActive Course";
             // 
             // panel3
             // 
@@ -149,11 +122,30 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 6);
+            this.label3.Location = new System.Drawing.Point(17, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 30);
+            this.label3.Size = new System.Drawing.Size(166, 30);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Pending Student";
+            this.label3.Text = "Pending Course";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.HeaderText = "Status";
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ACTIVE",
+            "INACTIVE",
+            "PENDING"});
+            this.cmbStatus.Name = "cmbStatus";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Active Course";
             // 
             // pnlActive
             // 
@@ -175,16 +167,6 @@
             this.lblActive.TabIndex = 1;
             this.lblActive.Text = "-";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Active Student";
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
@@ -193,33 +175,35 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(123, 41);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Add Student";
+            this.btnAdd.Text = "Add Course";
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dgvUpdate_Stud
+            // dgvCourse
             // 
-            this.dgvUpdate_Stud.AllowUserToAddRows = false;
-            this.dgvUpdate_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvUpdate_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUpdate_Stud.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCourse.AllowUserToAddRows = false;
+            this.dgvCourse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmbStatus});
-            this.dgvUpdate_Stud.Location = new System.Drawing.Point(2, 160);
-            this.dgvUpdate_Stud.Name = "dgvUpdate_Stud";
-            this.dgvUpdate_Stud.Size = new System.Drawing.Size(623, 309);
-            this.dgvUpdate_Stud.TabIndex = 0;
-            this.dgvUpdate_Stud.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellDoubleClick);
-            this.dgvUpdate_Stud.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellValueChanged);
-            this.dgvUpdate_Stud.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvUpdate_Stud_CurrentCellDirtyStateChanged);
+            this.dgvCourse.Location = new System.Drawing.Point(2, 160);
+            this.dgvCourse.Name = "dgvCourse";
+            this.dgvCourse.Size = new System.Drawing.Size(623, 309);
+            this.dgvCourse.TabIndex = 0;
             // 
-            // cmbStatus
+            // panel2
             // 
-            this.cmbStatus.HeaderText = "Status";
-            this.cmbStatus.Items.AddRange(new object[] {
-            "ACTIVE",
-            "INACTIVE",
-            "PENDING"});
-            this.cmbStatus.Name = "cmbStatus";
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtSearch);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.pnlActive);
+            this.panel2.Controls.Add(this.btnAdd);
+            this.panel2.Controls.Add(this.dgvCourse);
+            this.panel2.Location = new System.Drawing.Point(207, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(626, 469);
+            this.panel2.TabIndex = 5;
             // 
             // panel1
             // 
@@ -234,7 +218,18 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 469);
-            this.panel1.TabIndex = 7;
+            this.panel1.TabIndex = 6;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::PROEL_PROJ.Properties.Resources.loupe;
+            this.btnSearch.Location = new System.Drawing.Point(419, 116);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnLogs
             // 
@@ -291,6 +286,7 @@
             this.btnTeacher.TabIndex = 3;
             this.btnTeacher.Text = "Teachers";
             this.btnTeacher.UseVisualStyleBackColor = false;
+            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
             // 
             // btnStudents
             // 
@@ -305,6 +301,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = false;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnDashboard
             // 
@@ -331,27 +328,25 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // frmUpdate_Stud
+            // frmCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 468);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmUpdate_Stud";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmUpdate_Stud";
-            this.Load += new System.EventHandler(this.frmUpdate_Stud_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Name = "frmCourse";
+            this.Text = "frmCourse";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pnlActive.ResumeLayout(false);
             this.pnlActive.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate_Stud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -360,28 +355,28 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvUpdate_Stud;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Panel pnlActive;
+        private System.Windows.Forms.Button btnStudents;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblInactive;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnTeacher;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblActive;
+        private System.Windows.Forms.Button btnCourse;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Panel pnlActive;
+        private System.Windows.Forms.Label lblActive;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dgvCourse;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogs;
-        private System.Windows.Forms.Button btnCourse;
-        private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Button btnTeacher;
-        private System.Windows.Forms.Button btnStudents;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

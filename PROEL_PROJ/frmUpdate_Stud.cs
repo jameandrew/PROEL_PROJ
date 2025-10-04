@@ -22,13 +22,6 @@ namespace PROEL_PROJ
 
         string connectionString = Classes.ConString();
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            frmDashboard dashboard = new frmDashboard();
-            this.Hide();
-            dashboard.ShowDialog();
-        }
-
         private void dgvUpdate_Stud_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (dgvUpdate_Stud.IsCurrentCellDirty)
@@ -75,27 +68,6 @@ namespace PROEL_PROJ
             LoadStudents();
         }
 
-        private void btnDashboard_Click_1(object sender, EventArgs e)
-        {
-            frmDashboard dashboard = new frmDashboard();
-            this.Hide();
-            dashboard.ShowDialog();
-        }
-
-        private void btnTeacher_Click(object sender, EventArgs e)
-        {
-            frmTeachers teachers = new frmTeachers();
-            this.Hide();
-            teachers.ShowDialog();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddStud addStud = new frmAddStud();
-            this.Hide();
-            addStud.ShowDialog();
-        }
-
         private void dgvUpdate_Stud_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -125,10 +97,21 @@ namespace PROEL_PROJ
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string query = @"SELECT P.ProfileID, P.FirstName, P.LastName, P.Age, 
-                                P.Gender, P.Phone, P.Address, P.Email, P.Status
-                         FROM Profiles P
-                         INNER JOIN Students S ON P.ProfileID = S.ProfileID";
+                string query = @"SELECT
+                                 p.ProfileID, 
+                                 p.FirstName, 
+                                 p.LastName, 
+                                 p.Age, 
+                                 p.Gender, 
+                                 p.Phone, 
+                                 p.Address, 
+                                 p.Email, 
+                                 p.Status, 
+                                 s.EnrollmentDate
+                                 FROM Profiles p
+                                 INNER JOIN Students s ON p.ProfileID = s.ProfileID
+                                 WHERE p.RoleID <> 1 AND p.RoleID <> 3
+                                 ORDER BY ProfileID DESC";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
@@ -143,5 +126,20 @@ namespace PROEL_PROJ
             string keyword = txtSearch.Text.Trim();
             Classes.SearchFields(dgvUpdate_Stud, keyword);
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            frmDashboard dashboard = new frmDashboard();
+            this.Hide();
+            dashboard.ShowDialog();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddStud addStud = new frmAddStud();
+            this.Hide();
+            addStud.ShowDialog();
+        }
+
     }
 }

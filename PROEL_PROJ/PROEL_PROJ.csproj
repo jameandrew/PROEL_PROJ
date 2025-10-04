@@ -65,6 +65,12 @@
     <Compile Include="frmAddTeach.Designer.cs">
       <DependentUpon>frmAddTeach.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddTeach.resx">
       <DependentUpon>frmAddTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCourse.resx">
+      <DependentUpon>frmCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
@@ -206,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loupe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online-course.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

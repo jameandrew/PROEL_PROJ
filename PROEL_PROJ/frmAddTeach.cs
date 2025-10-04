@@ -57,7 +57,7 @@ namespace PROEL_PROJ
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@PHONE", txtPhone.Text);
                 cmd.Parameters.AddWithValue("@ADDRESS", txtAddress.Text);
-                cmd.Parameters.AddWithValue("@STATUS", "PENDING");
+                cmd.Parameters.AddWithValue("@STATUS", "ACTIVE");
                 cmd.Parameters.AddWithValue("@HIREDATE", dtpEnrolldate.Value);
                 cmd.Parameters.AddWithValue("@DEPARTMENTID", Convert.ToInt32(cmbDept.SelectedValue));
 
@@ -66,13 +66,13 @@ namespace PROEL_PROJ
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("✅ Student was Added!", "Success",
+                    MessageBox.Show("✅ Teacher was Added!", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
                 }
                 else
                 {
-                    MessageBox.Show("⚠ Adding Student failed.");
+                    MessageBox.Show("⚠ Adding Teacher failed.");
                 }
             }
         }
