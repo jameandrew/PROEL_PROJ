@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -41,8 +43,6 @@
             this.lblActive = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvUpdate_Stud = new System.Windows.Forms.DataGridView();
-            this.cmbStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
@@ -51,11 +51,12 @@
             this.btnStudents = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlActive.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate_Stud)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,17 +64,41 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.dgvStudent);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pnlActive);
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Controls.Add(this.dgvUpdate_Stud);
             this.panel2.Location = new System.Drawing.Point(207, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(626, 469);
             this.panel2.TabIndex = 3;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(7, 110);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 41);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // dgvStudent
+            // 
+            this.dgvStudent.AllowUserToAddRows = false;
+            this.dgvStudent.BackgroundColor = System.Drawing.Color.White;
+            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudent.Location = new System.Drawing.Point(2, 160);
+            this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.Size = new System.Drawing.Size(623, 309);
+            this.dgvStudent.TabIndex = 14;
             // 
             // btnSearch
             // 
@@ -197,30 +222,6 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dgvUpdate_Stud
-            // 
-            this.dgvUpdate_Stud.AllowUserToAddRows = false;
-            this.dgvUpdate_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvUpdate_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUpdate_Stud.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmbStatus});
-            this.dgvUpdate_Stud.Location = new System.Drawing.Point(2, 160);
-            this.dgvUpdate_Stud.Name = "dgvUpdate_Stud";
-            this.dgvUpdate_Stud.Size = new System.Drawing.Size(623, 309);
-            this.dgvUpdate_Stud.TabIndex = 0;
-            this.dgvUpdate_Stud.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellDoubleClick);
-            this.dgvUpdate_Stud.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_Stud_CellValueChanged);
-            this.dgvUpdate_Stud.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvUpdate_Stud_CurrentCellDirtyStateChanged);
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.HeaderText = "Status";
-            this.cmbStatus.Items.AddRange(new object[] {
-            "ACTIVE",
-            "INACTIVE",
-            "PENDING"});
-            this.cmbStatus.Name = "cmbStatus";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
@@ -249,6 +250,7 @@
             this.btnLogs.TabIndex = 6;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
+            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
             // 
             // btnCourse
             // 
@@ -291,6 +293,7 @@
             this.btnTeacher.TabIndex = 3;
             this.btnTeacher.Text = "Teachers";
             this.btnTeacher.UseVisualStyleBackColor = false;
+            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
             // 
             // btnStudents
             // 
@@ -305,6 +308,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = false;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnDashboard
             // 
@@ -331,6 +335,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(113, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 41);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Enroll";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmUpdate_Stud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,13 +361,13 @@
             this.Load += new System.EventHandler(this.frmUpdate_Stud_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pnlActive.ResumeLayout(false);
             this.pnlActive.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate_Stud)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -361,8 +377,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvUpdate_Stud;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel pnlActive;
         private System.Windows.Forms.Panel panel4;
@@ -383,5 +397,8 @@
         private System.Windows.Forms.Button btnStudents;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgvStudent;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button button1;
     }
 }

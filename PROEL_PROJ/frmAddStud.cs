@@ -50,7 +50,9 @@ namespace PROEL_PROJ
                 cmd.Parameters.AddWithValue("@ENROLLMENTDATE", dtpEnrolldate.Value);
 
                 connection.Open();
-
+                Logs.Record("Add Student",
+                    $"Student {txtFname.Text} {txtLname.Text} was added by {Logs.CurrentUserName}.",
+                    txtFname.Text, txtLname.Text);
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {

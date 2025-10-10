@@ -31,6 +31,7 @@ namespace PROEL_PROJ
                 cmbDept.DataSource = dt;
                 cmbDept.DisplayMember = "DepartmentName";
                 cmbDept.ValueMember = "DepartmentID";
+                cmbDept.SelectedIndex = -1;
             }
 
             Classes.transparent(btnBack);
@@ -62,12 +63,15 @@ namespace PROEL_PROJ
                 cmd.Parameters.AddWithValue("@DEPARTMENTID", Convert.ToInt32(cmbDept.SelectedValue));
 
                 connection.Open();
+                Logs.Record("Add Teacher",
+                    $"Teacher {txtFname.Text} {txtLname.Text} was added by {Logs.CurrentUserName}.",
+                    txtFname.Text, txtLname.Text);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("✅ Teacher was Added!", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
                 }
                 else

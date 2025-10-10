@@ -48,6 +48,11 @@ namespace PROEL_PROJ
             txtEmail.Text,
             Status
             );
+
+            Logs.Record("Updated Student",
+                $"Student {txtFname.Text} {txtLname.Text} was updated by {Logs.CurrentUserName}.",
+                txtFname.Text, txtLname.Text);
+            this.Close();
         }
-    }
+    } 
 }

@@ -24,18 +24,18 @@ namespace PROEL_PROJ
 
         private void dgvUpdate_Stud_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (dgvUpdate_Stud.IsCurrentCellDirty)
+            if (dgvStudent.IsCurrentCellDirty)
             {
-                dgvUpdate_Stud.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                dgvStudent.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
 
         private void dgvUpdate_Stud_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvUpdate_Stud.Columns[e.ColumnIndex].Name == "cmbStatus")
+            if (e.RowIndex >= 0 && dgvStudent.Columns[e.ColumnIndex].Name == "cmbStatus")
             {
-                int profileId = Convert.ToInt32(dgvUpdate_Stud.Rows[e.RowIndex].Cells["ProfileID"].Value);
-                string newStatus = dgvUpdate_Stud.Rows[e.RowIndex].Cells["cmbStatus"].Value.ToString();
+                int profileId = Convert.ToInt32(dgvStudent.Rows[e.RowIndex].Cells["ProfileID"].Value);
+                string newStatus = dgvStudent.Rows[e.RowIndex].Cells["cmbStatus"].Value.ToString();
 
                 DialogResult result = MessageBox.Show(
                    $"Are you sure you want to change this student's status to '{newStatus}'?",
@@ -47,7 +47,7 @@ namespace PROEL_PROJ
                 if (result == DialogResult.Yes)
                 {
                     classes.UpdateStatus(profileId, newStatus);
-                    classes.RefreshDB(dgvUpdate_Stud);
+                    classes.RefreshDB(dgvStudent);
                 }
             }
         }
@@ -61,9 +61,12 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnAdd);
             Classes.ApplySidebarStyle(btnTeacher);
+            Classes.ApplySidebarStyle(btnCourse);
+            Classes.ApplySidebarStyle(btnDelete);
+
             Classes.transparent(btnSearch);
 
-            classes.LoadDataStudent(connectionString,dgvUpdate_Stud);
+            classes.LoadDataStudent(connectionString,dgvStudent);
             Classes.ShowCountStud(lblActive, lblPending, lblInactive);
             LoadStudents();
         }
@@ -72,7 +75,7 @@ namespace PROEL_PROJ
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvUpdate_Stud.Rows[e.RowIndex];
+                DataGridViewRow row = dgvStudent.Rows[e.RowIndex];
 
                 int profileId = Convert.ToInt32(row.Cells["ProfileID"].Value);
                 string firstName = row.Cells["FirstName"].Value.ToString();
@@ -97,7 +100,8 @@ namespace PROEL_PROJ
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string query = @"SELECT
+                string query = @"SELECT 
+                                 s.StudentID,
                                  p.ProfileID, 
                                  p.FirstName, 
                                  p.LastName, 
@@ -111,20 +115,21 @@ namespace PROEL_PROJ
                                  FROM Profiles p
                                  INNER JOIN Students s ON p.ProfileID = s.ProfileID
                                  WHERE p.RoleID <> 1 AND p.RoleID <> 3
+                                 AND p.Status = 'ACTIVE'
                                  ORDER BY ProfileID DESC";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                dgvUpdate_Stud.DataSource = dt;
+                dgvStudent.DataSource = dt;
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim();
-            Classes.SearchFields(dgvUpdate_Stud, keyword);
+            Classes.SearchFields(dgvStudent, keyword);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -140,6 +145,61 @@ namespace PROEL_PROJ
             this.Hide();
             addStud.ShowDialog();
         }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            frmUpdate_Stud stud = new frmUpdate_Stud();
+            this.Hide();
+            stud.ShowDialog();
+        }
+
+        private void btnTeacher_Click(object sender, EventArgs e)
+        {
+            frmTeachers frmTeachers= new frmTeachers();
+            this.Hide();
+            frmTeachers.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)    
+        {
+            int profileId = Convert.ToInt32(dgvStudent.CurrentRow.Cells["ProfileID"].Value);
+            classes.UpdateStatus(profileId, "INACTIVE");
+            Logs.Record("Delete Student", $"Student set to INACTIVE by {Logs.CurrentUserName}");
+
+            MessageBox.Show("Student set to INACTIVE.");
+            Teacher.ShowCountTeach(lblActive, lblPending, lblInactive);
+        }
+
+        private void btnLogs_Click(object sender, EventArgs e)
+        {
+            frmLogs logs = new frmLogs();
+            this.Hide();
+            logs.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvStudent.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a student first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentID = Convert.ToInt32(dgvStudent.CurrentRow.Cells["StudentID"].Value);
+            string firstName = dgvStudent.CurrentRow.Cells["FirstName"].Value.ToString();
+            string lastName = dgvStudent.CurrentRow.Cells["LastName"].Value.ToString();
+            int age = Convert.ToInt32(dgvStudent.CurrentRow.Cells["Age"].Value);
+            string gender = dgvStudent.CurrentRow.Cells["Gender"].Value.ToString();
+            string phone = dgvStudent.CurrentRow.Cells["Phone"].Value.ToString();
+            string email = dgvStudent.CurrentRow.Cells["Email"].Value.ToString();
+            string status = dgvStudent.CurrentRow.Cells["Status"].Value.ToString();
+
+            frmEnrollment enrollForm = new frmEnrollment(studentID, firstName, lastName, age, gender, phone, email, status);
+            enrollForm.ShowDialog();
+            this.Close();
+        }
+
+        
 
     }
 }

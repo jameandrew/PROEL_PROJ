@@ -35,15 +35,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblPending = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlActive = new System.Windows.Forms.Panel();
             this.lblActive = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvCourse = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvCourse = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -54,8 +54,8 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlActive.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -128,15 +128,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Pending Course";
             // 
-            // cmbStatus
-            // 
-            this.cmbStatus.HeaderText = "Status";
-            this.cmbStatus.Items.AddRange(new object[] {
-            "ACTIVE",
-            "INACTIVE",
-            "PENDING"});
-            this.cmbStatus.Name = "cmbStatus";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -177,33 +168,57 @@
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add Course";
             this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // dgvCourse
-            // 
-            this.dgvCourse.AllowUserToAddRows = false;
-            this.dgvCourse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmbStatus});
-            this.dgvCourse.Location = new System.Drawing.Point(2, 160);
-            this.dgvCourse.Name = "dgvCourse";
-            this.dgvCourse.Size = new System.Drawing.Size(623, 309);
-            this.dgvCourse.TabIndex = 0;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.dgvCourse);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pnlActive);
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Controls.Add(this.dgvCourse);
             this.panel2.Location = new System.Drawing.Point(207, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(626, 469);
             this.panel2.TabIndex = 5;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(45, 113);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(123, 41);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Delete Course";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // dgvCourse
+            // 
+            this.dgvCourse.AllowUserToAddRows = false;
+            this.dgvCourse.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourse.Location = new System.Drawing.Point(1, 160);
+            this.dgvCourse.Name = "dgvCourse";
+            this.dgvCourse.Size = new System.Drawing.Size(623, 309);
+            this.dgvCourse.TabIndex = 14;
+            this.dgvCourse.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourse_CellDoubleClick);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::PROEL_PROJ.Properties.Resources.loupe;
+            this.btnSearch.Location = new System.Drawing.Point(419, 116);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -220,17 +235,6 @@
             this.panel1.Size = new System.Drawing.Size(210, 469);
             this.panel1.TabIndex = 6;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::PROEL_PROJ.Properties.Resources.loupe;
-            this.btnSearch.Location = new System.Drawing.Point(419, 116);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(37, 35);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // btnLogs
             // 
             this.btnLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
@@ -244,6 +248,7 @@
             this.btnLogs.TabIndex = 6;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
+            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
             // 
             // btnCourse
             // 
@@ -337,16 +342,18 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCourse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCourse";
+            this.Load += new System.EventHandler(this.frmCourse_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pnlActive.ResumeLayout(false);
             this.pnlActive.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -368,15 +375,15 @@
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCourse;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cmbStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlActive;
         private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dgvCourse;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogs;
+        private System.Windows.Forms.DataGridView dgvCourse;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

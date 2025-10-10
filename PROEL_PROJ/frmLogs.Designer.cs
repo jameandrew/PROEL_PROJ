@@ -1,6 +1,6 @@
 ﻿namespace PROEL_PROJ
 {
-    partial class frmDashboard
+    partial class frmLogs
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvTotal_Stud = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
@@ -47,45 +36,16 @@
             this.btnStudents = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chartTeachers = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartStudents = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartCourses = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTotal_Stud)).BeginInit();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl = new System.Windows.Forms.Label();
+            this.dgvLogs = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTeachers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartStudents)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartCourses)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.chartCourses);
-            this.panel2.Controls.Add(this.chartStudents);
-            this.panel2.Controls.Add(this.chartTeachers);
-            this.panel2.Controls.Add(this.dgvTotal_Stud);
-            this.panel2.Location = new System.Drawing.Point(207, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 469);
-            this.panel2.TabIndex = 5;
-            // 
-            // dgvTotal_Stud
-            // 
-            this.dgvTotal_Stud.AllowUserToAddRows = false;
-            this.dgvTotal_Stud.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTotal_Stud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTotal_Stud.Location = new System.Drawing.Point(0, 289);
-            this.dgvTotal_Stud.Name = "dgvTotal_Stud";
-            this.dgvTotal_Stud.Size = new System.Drawing.Size(626, 180);
-            this.dgvTotal_Stud.TabIndex = 0;
             // 
             // panel1
             // 
@@ -100,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 469);
-            this.panel1.TabIndex = 8;
+            this.panel1.TabIndex = 10;
             // 
             // btnLogs
             // 
@@ -115,7 +75,6 @@
             this.btnLogs.TabIndex = 6;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
-            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
             // 
             // btnCourse
             // 
@@ -159,7 +118,7 @@
             this.btnTeacher.TabIndex = 3;
             this.btnTeacher.Text = "Teachers";
             this.btnTeacher.UseVisualStyleBackColor = false;
-            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click_1);
+            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
             // 
             // btnStudents
             // 
@@ -174,7 +133,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = false;
-            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click_1);
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnDashboard
             // 
@@ -201,116 +160,82 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // chartTeachers
+            // panel2
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartTeachers.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartTeachers.Legends.Add(legend3);
-            this.chartTeachers.Location = new System.Drawing.Point(11, 36);
-            this.chartTeachers.Name = "chartTeachers";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartTeachers.Series.Add(series3);
-            this.chartTeachers.Size = new System.Drawing.Size(190, 167);
-            this.chartTeachers.TabIndex = 1;
-            this.chartTeachers.Text = "chart1";
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lbl);
+            this.panel2.Controls.Add(this.dgvLogs);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtSearch);
+            this.panel2.Location = new System.Drawing.Point(207, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(626, 469);
+            this.panel2.TabIndex = 11;
             // 
-            // chartStudents
+            // lbl
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartStudents.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartStudents.Legends.Add(legend2);
-            this.chartStudents.Location = new System.Drawing.Point(218, 36);
-            this.chartStudents.Name = "chartStudents";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartStudents.Series.Add(series2);
-            this.chartStudents.Size = new System.Drawing.Size(190, 167);
-            this.chartStudents.TabIndex = 2;
-            this.chartStudents.Text = "chart1";
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(25, 18);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(61, 25);
+            this.lbl.TabIndex = 14;
+            this.lbl.Text = "LOGS";
             // 
-            // chartCourses
+            // dgvLogs
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartCourses.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartCourses.Legends.Add(legend1);
-            this.chartCourses.Location = new System.Drawing.Point(425, 36);
-            this.chartCourses.Name = "chartCourses";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartCourses.Series.Add(series1);
-            this.chartCourses.Size = new System.Drawing.Size(190, 167);
-            this.chartCourses.TabIndex = 3;
-            this.chartCourses.Text = "chart1";
+            this.dgvLogs.AllowUserToAddRows = false;
+            this.dgvLogs.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLogs.Location = new System.Drawing.Point(2, 59);
+            this.dgvLogs.Name = "dgvLogs";
+            this.dgvLogs.Size = new System.Drawing.Size(623, 410);
+            this.dgvLogs.TabIndex = 13;
             // 
-            // label1
+            // btnSearch
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Teacher Population";
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::PROEL_PROJ.Properties.Resources.loupe;
+            this.btnSearch.Location = new System.Drawing.Point(410, 18);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(37, 35);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // label2
+            // txtSearch
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(228, 222);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Student Population";
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(453, 21);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(157, 29);
+            this.txtSearch.TabIndex = 11;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(437, 222);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Course Population";
-            // 
-            // frmDashboard
+            // frmLogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(832, 468);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDashboard";
+            this.Name = "frmLogs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDashboard";
-            this.Load += new System.EventHandler(this.frmDashboard_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTotal_Stud)).EndInit();
+            this.Text = "frmLogs";
+            this.Load += new System.EventHandler(this.frmLogs_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTeachers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartStudents)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartCourses)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvTotal_Stud;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogs;
         private System.Windows.Forms.Button btnCourse;
@@ -319,11 +244,10 @@
         private System.Windows.Forms.Button btnStudents;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartTeachers;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartCourses;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartStudents;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvLogs;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lbl;
     }
 }

@@ -34,7 +34,7 @@ namespace PROEL_PROJ
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            Classes.UpdateTeacherInfo(
+            Classes.UpdateStudentInfo(
             profileId,
             txtFname.Text,
             txtLname.Text,
@@ -46,12 +46,22 @@ namespace PROEL_PROJ
             Status
             );
 
+            Logs.Record("Updated Student",
+                $"Student {txtFname.Text} {txtLname.Text} was Updated by {Logs.CurrentUserName}.",
+                txtFname.Text, txtLname.Text);
             this.Close();
         }
 
         private void frmUpdate_Load(object sender, EventArgs e)
         {
             Classes.transparent(btnBack);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmUpdate_Stud frmUpdate_Stud = new frmUpdate_Stud();
+            this.Hide();
+            frmUpdate_Stud.ShowDialog();
         }
     }
 }

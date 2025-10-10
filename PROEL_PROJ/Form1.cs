@@ -48,10 +48,20 @@ namespace PROEL_PROJ
                 {
                     if (reader.Read())
                     {
+                        string userId = (reader["UserID"].ToString());
+                        string firstName = reader["Firstname"].ToString();
+                        string lastName = reader["Lastname"].ToString();
                         string role = reader["RoleName"].ToString();
-                        MessageBox.Show($"Log-In Successfully, Welcome: {username} ({role})");
+
+                        MessageBox.Show($"Log-In Successfully, Welcome: {firstName} {lastName} ({role})");
+
+                        Logs.CurrentUserId = userId;
+                        Logs.CurrentUserName = $"{firstName} {lastName}";
+
+                        Logs.Record("Login", $"{Logs.CurrentUserName} logged in successfully.");
 
                         loginAttempts = 0;
+
                         frmDashboard dashboard = new frmDashboard();
                         this.Hide();
                         dashboard.ShowDialog();
@@ -63,7 +73,9 @@ namespace PROEL_PROJ
                         int remaining = MaxAttempts - loginAttempts;
 
                         if (remaining > 0)
+                        {
                             MessageBox.Show($"Invalid username or password. You have {remaining} attempt(s) left.");
+                        }
                         else
                         {
                             MessageBox.Show("Maximum login attempts reached. You are locked out.");
@@ -96,6 +108,10 @@ namespace PROEL_PROJ
                 this.Hide();
                 sign_Up.ShowDialog();
             }
+        }
+
+        private void frmLogIn_Load(object sender, EventArgs e)
+        {
         }
     }
 }

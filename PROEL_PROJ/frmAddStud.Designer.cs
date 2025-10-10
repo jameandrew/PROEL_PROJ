@@ -49,14 +49,14 @@
             this.txtLname = new System.Windows.Forms.TextBox();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtpEnrolldate = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.dtpEnrolldate = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label10
@@ -219,7 +219,7 @@
             // 
             this.cmbGender.BackColor = System.Drawing.Color.White;
             this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGender.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGender.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
             "MALE",
@@ -227,7 +227,7 @@
             "PREFER NOT TO SAY"});
             this.cmbGender.Location = new System.Drawing.Point(272, 107);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(163, 29);
+            this.cmbGender.Size = new System.Drawing.Size(163, 28);
             this.cmbGender.TabIndex = 46;
             // 
             // txtEmail
@@ -280,6 +280,26 @@
             this.panel1.Size = new System.Drawing.Size(322, 412);
             this.panel1.TabIndex = 5;
             // 
+            // btnBack
+            // 
+            this.btnBack.Image = global::PROEL_PROJ.Properties.Resources.back_button;
+            this.btnBack.Location = new System.Drawing.Point(0, -1);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(33, 32);
+            this.btnBack.TabIndex = 6;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PROEL_PROJ.Properties.Resources.download_removebg_preview1;
+            this.pictureBox1.Location = new System.Drawing.Point(46, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(224, 157);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
@@ -306,34 +326,6 @@
             this.panel2.Size = new System.Drawing.Size(479, 412);
             this.panel2.TabIndex = 4;
             // 
-            // btnBack
-            // 
-            this.btnBack.Image = global::PROEL_PROJ.Properties.Resources.back_button;
-            this.btnBack.Location = new System.Drawing.Point(0, -1);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(33, 32);
-            this.btnBack.TabIndex = 6;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PROEL_PROJ.Properties.Resources.download_removebg_preview1;
-            this.pictureBox1.Location = new System.Drawing.Point(46, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(224, 157);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // dtpEnrolldate
-            // 
-            this.dtpEnrolldate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnrolldate.Location = new System.Drawing.Point(44, 292);
-            this.dtpEnrolldate.Name = "dtpEnrolldate";
-            this.dtpEnrolldate.Size = new System.Drawing.Size(163, 20);
-            this.dtpEnrolldate.TabIndex = 59;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -343,6 +335,14 @@
             this.label12.Size = new System.Drawing.Size(104, 17);
             this.label12.TabIndex = 60;
             this.label12.Text = "Enrollment Date";
+            // 
+            // dtpEnrolldate
+            // 
+            this.dtpEnrolldate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnrolldate.Location = new System.Drawing.Point(44, 292);
+            this.dtpEnrolldate.Name = "dtpEnrolldate";
+            this.dtpEnrolldate.Size = new System.Drawing.Size(163, 20);
+            this.dtpEnrolldate.TabIndex = 59;
             // 
             // frmAddStud
             // 
@@ -358,9 +358,9 @@
             this.Load += new System.EventHandler(this.frmAddStud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
