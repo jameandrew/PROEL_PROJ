@@ -101,7 +101,7 @@
             this.txtDescription.Location = new System.Drawing.Point(44, 288);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(163, 29);
-            this.txtDescription.TabIndex = 49;
+            this.txtDescription.TabIndex = 45;
             // 
             // label4
             // 
@@ -151,7 +151,7 @@
             this.btnRegister.Location = new System.Drawing.Point(272, 275);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(163, 42);
-            this.btnRegister.TabIndex = 52;
+            this.btnRegister.TabIndex = 48;
             this.btnRegister.Text = "Add";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -178,7 +178,7 @@
             this.txtCredit.Location = new System.Drawing.Point(272, 227);
             this.txtCredit.Name = "txtCredit";
             this.txtCredit.Size = new System.Drawing.Size(163, 29);
-            this.txtCredit.TabIndex = 45;
+            this.txtCredit.TabIndex = 47;
             // 
             // txtCourseCode
             // 

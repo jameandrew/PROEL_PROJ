@@ -33,7 +33,6 @@ namespace PROEL_PROJ
             txtEmail.Text = email;
             Status = status;
 
-            LoadCourses();
             LoadDepartments();
             LoadSemesters();
 
@@ -45,18 +44,20 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnBack);
         }
 
-        private void LoadCourses()
+        private void LoadCourses(int departmentID)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT CourseID, CourseName FROM Courses ORDER BY CourseName", con);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT CourseID, CourseName FROM Courses WHERE DepartmentID = @DepartmentID ORDER BY CourseName", con);
+                da.SelectCommand.Parameters.AddWithValue("@DepartmentID", departmentID);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 cmbCourse.DataSource = dt;
                 cmbCourse.DisplayMember = "CourseName";
                 cmbCourse.ValueMember = "CourseID";
+                cmbCourse.SelectedIndex = -1;
             }
         }
 
@@ -72,7 +73,9 @@ namespace PROEL_PROJ
                 cmbDepartment.DataSource = dt;
                 cmbDepartment.DisplayMember = "DepartmentName";
                 cmbDepartment.ValueMember = "DepartmentID";
+                cmbDepartment.SelectedIndex = -1;
             }
+            cmbDepartment.SelectedIndexChanged += cmbDepartment_SelectedIndexChanged;
         }
 
         private void LoadSemesters()
@@ -87,6 +90,7 @@ namespace PROEL_PROJ
                 cmbSemester.DisplayMember = "TermName";
                 cmbSemester.ValueMember = "TermName";
                 cmbSemester.DataSource = dt;
+                cmbSemester.SelectedIndex = -1;
             }
         }
 
@@ -130,8 +134,16 @@ namespace PROEL_PROJ
         private void btnBack_Click(object sender, EventArgs e)
         {
             frmUpdate_Stud updateForm = new frmUpdate_Stud();
-            updateForm.Show();
-            this.Close();
+            this.Hide();
+            updateForm.ShowDialog();
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbDepartment.SelectedValue != null && int.TryParse(cmbDepartment.SelectedValue.ToString(), out int deptID))
+            {
+                LoadCourses(deptID);
+            }
         }
     }
 }

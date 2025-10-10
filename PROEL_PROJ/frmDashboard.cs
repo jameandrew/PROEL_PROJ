@@ -22,42 +22,14 @@ namespace PROEL_PROJ
         string connectionString = Classes.ConString();
         private void frmDashboard_Load(object sender, EventArgs e)
         {
+            lblUser.Text = Classes.FullName;
+            lblRole.Text = $"Welcome, {Classes.RoleName}";
             Classes.ApplySidebarStyle(btnDashboard);
             Classes.ApplySidebarStyle(btnStudents);
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnCourse);
-
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                sqlCon.Open();
-
-                string queryStudents = @"
-        SELECT 
-            p.ProfileID, 
-            p.FirstName, 
-            p.LastName, 
-            p.Age, 
-            p.Gender, 
-            p.Email, 
-            r.RoleName
-        FROM Profiles p
-        INNER JOIN Roles r ON p.RoleID = r.RoleID
-        INNER JOIN Students s ON p.ProfileID = s.ProfileID
-        WHERE r.RoleName = 'STUDENT' AND p.Status = 'ACTIVE'
-        ORDER BY p.ProfileID DESC";
-
-                SqlDataAdapter sqlDa = new SqlDataAdapter(queryStudents, sqlCon);
-                DataTable dt = new DataTable();
-                sqlDa.Fill(dt);
-
-                dgvTotal_Stud.DataSource = dt;
-            }
-
-
-
-
             LoadPopulationCharts();
         }
 

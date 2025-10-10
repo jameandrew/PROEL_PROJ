@@ -78,16 +78,15 @@ namespace PROEL_PROJ
                 con.Open();
 
                 string query = @"
-        SELECT 
-            i.InstructorID,
-            p.ProfileID,
-            p.FirstName,
-            p.LastName,
-            d.DepartmentName
-        FROM Instructors i
-        INNER JOIN Profiles p ON i.ProfileID = p.ProfileID
-        INNER JOIN Departments d ON i.DepartmentID = d.DepartmentID
-        ";
+                SELECT 
+                i.InstructorID,
+                p.ProfileID,
+                p.FirstName,
+                p.LastName,
+                d.DepartmentName
+                FROM Instructors i
+                INNER JOIN Profiles p ON i.ProfileID = p.ProfileID
+                INNER JOIN Departments d ON i.DepartmentID = d.DepartmentID";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
@@ -187,6 +186,7 @@ namespace PROEL_PROJ
 
             string departmentName = GetTeacherDepartmentName(instructorID);
 
+            Logs.Record("Assigned Instructor", $"Instructor was assigned by {Logs.CurrentUserName}");
             frmAssign assignForm = new frmAssign(instructorID, firstName, lastName, departmentName);
             assignForm.ShowDialog();
         }
@@ -220,32 +220,32 @@ namespace PROEL_PROJ
                 {
                     con.Open();
                     string query = @"
-                SELECT 
-                s.InstructorID,
-                p.ProfileID,
-                p.FirstName,
-                p.LastName,
-                p.Age,
-                p.Gender,
-                p.Phone,
-                p.Address,
-                p.Email,
-                p.Status,
-                s.HireDate,
-                d.DepartmentName,
-                ISNULL(CourseList.Courses, 'No course assigned') AS AssignedCourses
-                FROM Profiles p
-                INNER JOIN Instructors s ON p.ProfileID = s.ProfileID
-                INNER JOIN Departments d ON s.DepartmentID = d.DepartmentID
-                LEFT JOIN 
-                (
-                SELECT ic.InstructorID, STRING_AGG(c.CourseName, ', ') AS Courses
-                FROM InstructorCourses ic
-                INNER JOIN Courses c ON ic.CourseID = c.CourseID
-                GROUP BY ic.InstructorID
-                ) AS CourseList
-                ON s.InstructorID = CourseList.InstructorID
-                WHERE s.InstructorID = @InstructorID";
+                    SELECT 
+                    s.InstructorID,
+                    p.ProfileID,
+                    p.FirstName,
+                    p.LastName,
+                    p.Age,
+                    p.Gender,
+                    p.Phone,
+                    p.Address,
+                    p.Email,
+                    p.Status,
+                    s.HireDate,
+                    d.DepartmentName,
+                    ISNULL(CourseList.Courses, 'No course assigned') AS AssignedCourses
+                    FROM Profiles p
+                    INNER JOIN Instructors s ON p.ProfileID = s.ProfileID
+                    INNER JOIN Departments d ON s.DepartmentID = d.DepartmentID
+                    LEFT JOIN 
+                    (
+                    SELECT ic.InstructorID, STRING_AGG(c.CourseName, ', ') AS Courses
+                    FROM InstructorCourses ic
+                    INNER JOIN Courses c ON ic.CourseID = c.CourseID
+                    GROUP BY ic.InstructorID
+                    ) AS CourseList
+                    ON s.InstructorID = CourseList.InstructorID
+                    WHERE s.InstructorID = @InstructorID";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@InstructorID", instructorID);
@@ -254,18 +254,18 @@ namespace PROEL_PROJ
                     if (reader.Read())
                     {
                         string details =
-                    $@"InstructorID: {reader["InstructorID"]}
-                    ProfileID: {reader["ProfileID"]}
-                    Name: {reader["FirstName"]} {reader["LastName"]}
-                    Age: {reader["Age"]}
-                    Gender: {reader["Gender"]}
-                    Phone: {reader["Phone"]}
-                    Address: {reader["Address"]}
-                    Email: {reader["Email"]}
-                    Status: {reader["Status"]}
-                    Hire Date: {Convert.ToDateTime(reader["HireDate"]).ToString("yyyy-MM-dd")}
-                    Department: {reader["DepartmentName"]}
-                    Assigned Courses: {reader["AssignedCourses"]}";
+                        $@"InstructorID: {reader["InstructorID"]}
+                        ProfileID: {reader["ProfileID"]}
+                        Name: {reader["FirstName"]} {reader["LastName"]}
+                        Age: {reader["Age"]}
+                        Gender: {reader["Gender"]}
+                        Phone: {reader["Phone"]}
+                        Address: {reader["Address"]}
+                        Email: {reader["Email"]}
+                        Status: {reader["Status"]}
+                        Hire Date: {Convert.ToDateTime(reader["HireDate"]).ToString("yyyy-MM-dd")}
+                        Department: {reader["DepartmentName"]}
+                        Assigned Courses: {reader["AssignedCourses"]}";
 
                         MessageBox.Show(details, "Teacher Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

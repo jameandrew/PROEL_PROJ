@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace PROEL_PROJ
 {
@@ -16,7 +17,10 @@ namespace PROEL_PROJ
         private SqlDataAdapter sqlData;
         private DataTable dt;
 
-        
+        public static string UserID { get; set; }
+        public static int ProfileID { get; set; }
+        public static string FullName { get; set; }
+        public static string RoleName { get; set; }
 
         public static string ConString()
         {
@@ -64,13 +68,24 @@ namespace PROEL_PROJ
                                                s.EnrollmentDate
                                                FROM Profiles p
                                                INNER JOIN Students s ON p.ProfileID = s.ProfileID
-                                               WHERE p.RoleID <> 1 AND p.RoleID <> 3 AND p.Status = 'ACTIVE' ", con);
+                                               WHERE p.RoleID <> 1 AND p.RoleID <> 3 AND p.Status = 'ACTIVE'
+                                               ORDER BY ProfileID DESC", con);
                 SqlCommandBuilder builder = new SqlCommandBuilder(sqlData);
-
                 dt = new DataTable();
                 sqlData.Fill(dt);
-
                 dgv.DataSource = dt;
+
+                if (!dgv.Columns.Contains("btnAction"))
+                {
+                    DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
+                    btnCol.HeaderText = "";
+                    btnCol.Name = "btnAction";
+                    btnCol.Text = "View";
+                    btnCol.UseColumnTextForButtonValue = true;
+                    dgv.Columns.Add(btnCol);
+                }
+
+                dgv.Columns["btnAction"].DisplayIndex = dgv.Columns.Count - 1;
             }
             return dt;
         }
@@ -241,6 +256,49 @@ namespace PROEL_PROJ
 
             course.Enabled = true;
             department.Enabled = true;
+        }       
+
+        public static void DisplayName(TextBox user, TextBox password)
+        {
+            using (SqlConnection con = new SqlConnection(Classes.ConString()))
+            {
+                con.Open();
+                string query = @"
+                SELECT 
+                u.UserID,
+                u.ProfileID,
+                CONCAT(p.FirstName, ' ', p.LastName) AS FullName,
+                r.RoleName
+                FROM Users u
+                INNER JOIN Profiles p ON u.ProfileID = p.ProfileID
+                INNER JOIN Roles r ON u.RoleID = r.RoleID
+                WHERE u.Username = @Username AND u.Password = @Password";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Username", user.Text);
+                    cmd.Parameters.AddWithValue("@Password", password.Text);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        UserID = (reader["UserID"].ToString());
+                        ProfileID = Convert.ToInt32(reader["ProfileID"]);
+                        FullName = reader["FullName"].ToString();
+                        RoleName = reader["RoleName"].ToString();
+
+                        MessageBox.Show($"Welcome {FullName}!", "Login Successful",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.", "Login Failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
         }
 
     }

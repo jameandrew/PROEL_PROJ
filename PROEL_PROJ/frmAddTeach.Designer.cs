@@ -113,7 +113,7 @@
             this.cmbDept.Location = new System.Drawing.Point(44, 339);
             this.cmbDept.Name = "cmbDept";
             this.cmbDept.Size = new System.Drawing.Size(163, 29);
-            this.cmbDept.TabIndex = 79;
+            this.cmbDept.TabIndex = 66;
             // 
             // label12
             // 
@@ -131,7 +131,7 @@
             this.dtpEnrolldate.Location = new System.Drawing.Point(44, 289);
             this.dtpEnrolldate.Name = "dtpEnrolldate";
             this.dtpEnrolldate.Size = new System.Drawing.Size(163, 20);
-            this.dtpEnrolldate.TabIndex = 77;
+            this.dtpEnrolldate.TabIndex = 65;
             // 
             // label10
             // 
@@ -180,7 +180,7 @@
             this.txtPhone.Location = new System.Drawing.Point(272, 225);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(163, 29);
-            this.txtPhone.TabIndex = 67;
+            this.txtPhone.TabIndex = 69;
             // 
             // label6
             // 
@@ -258,7 +258,7 @@
             this.cmbGender.Location = new System.Drawing.Point(272, 104);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(163, 28);
-            this.cmbGender.TabIndex = 65;
+            this.cmbGender.TabIndex = 67;
             // 
             // txtEmail
             // 
@@ -267,7 +267,7 @@
             this.txtEmail.Location = new System.Drawing.Point(272, 286);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 29);
-            this.txtEmail.TabIndex = 66;
+            this.txtEmail.TabIndex = 70;
             // 
             // txtAge
             // 

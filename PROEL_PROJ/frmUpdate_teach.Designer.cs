@@ -30,6 +30,7 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblProfileID = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -47,7 +48,6 @@
             this.txtLname = new System.Windows.Forms.TextBox();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,16 @@
             this.lblProfileID.TabIndex = 61;
             this.lblProfileID.Text = "FirstName";
             this.lblProfileID.Visible = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Image = global::PROEL_PROJ.Properties.Resources.back_button;
+            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(33, 32);
+            this.btnBack.TabIndex = 6;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label10
             // 
@@ -260,15 +270,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(728, 412);
             this.panel1.TabIndex = 8;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Image = global::PROEL_PROJ.Properties.Resources.back_button;
-            this.btnBack.Location = new System.Drawing.Point(0, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(33, 32);
-            this.btnBack.TabIndex = 6;
-            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // frmUpdate_teach
             // 

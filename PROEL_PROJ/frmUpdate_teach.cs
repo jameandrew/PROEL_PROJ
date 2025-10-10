@@ -54,5 +54,12 @@ namespace PROEL_PROJ
                 txtFname.Text, txtLname.Text);
             this.Close();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmTeachers frmTeachers = new frmTeachers();
+            this.Hide();
+            frmTeachers.ShowDialog();
+        }
     } 
 }

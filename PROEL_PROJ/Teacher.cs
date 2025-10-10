@@ -27,25 +27,25 @@ namespace PROEL_PROJ
             using (SqlConnection con = new SqlConnection(ConString()))
             {
                 sqlData = new SqlDataAdapter(@"
-        SELECT 
-        s.InstructorID, 
-        p.ProfileID, 
-        p.Firstname, 
-        p.Lastname, 
-        p.Age, 
-        p.Gender, 
-        p.Phone, 
-        p.Address, 
-        p.Email, 
-        p.Status, 
-        s.HireDate, 
-        d.DepartmentName
-        FROM Profiles p
-        INNER JOIN Instructors s ON p.ProfileID = s.ProfileID
-        INNER JOIN Departments d ON s.DepartmentID = d.DepartmentID
-        WHERE p.RoleID <> 1 AND p.RoleID <> 2 
-        AND p.Status = 'ACTIVE'
-        ORDER BY p.ProfileID DESC;", con);
+                SELECT 
+                s.InstructorID, 
+                p.ProfileID, 
+                p.Firstname, 
+                p.Lastname, 
+                p.Age, 
+                p.Gender, 
+                p.Phone, 
+                p.Address, 
+                p.Email, 
+                p.Status, 
+                s.HireDate, 
+                d.DepartmentName
+                FROM Profiles p
+                INNER JOIN Instructors s ON p.ProfileID = s.ProfileID
+                INNER JOIN Departments d ON s.DepartmentID = d.DepartmentID
+                WHERE p.RoleID <> 1 AND p.RoleID <> 2 
+                AND p.Status = 'ACTIVE'
+                ORDER BY p.ProfileID DESC;", con);
 
                 SqlCommandBuilder builder = new SqlCommandBuilder(sqlData);
 
@@ -128,26 +128,25 @@ namespace PROEL_PROJ
                 P.Status,
                 S.HireDate,
                 D.DepartmentName
-            FROM Profiles P
-            INNER JOIN Instructors S ON P.ProfileID = S.ProfileID
-            INNER JOIN Departments D ON S.DepartmentID = D.DepartmentID"
-                   ;
+                FROM Profiles P
+                INNER JOIN Instructors S ON P.ProfileID = S.ProfileID
+                INNER JOIN Departments D ON S.DepartmentID = D.DepartmentID";
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
                     query += @"
                     WHERE 
-                   CAST(P.ProfileID AS NVARCHAR) LIKE @keyword OR
-                P.FirstName LIKE @keyword OR
-                P.LastName LIKE @keyword OR
-                CAST(P.Age AS NVARCHAR) LIKE @keyword OR
-                P.Gender LIKE @keyword OR
-                P.Phone LIKE @keyword OR
-                P.Address LIKE @keyword OR
-                P.Email LIKE @keyword OR
-                P.Status LIKE @keyword OR
-                CAST(S.HireDate AS NVARCHAR) LIKE @keyword OR
-                D.DepartmentName LIKE @keyword";
+                    CAST(P.ProfileID AS NVARCHAR) LIKE @keyword OR
+                    P.FirstName LIKE @keyword OR
+                    P.LastName LIKE @keyword OR
+                    CAST(P.Age AS NVARCHAR) LIKE @keyword OR
+                    P.Gender LIKE @keyword OR
+                    P.Phone LIKE @keyword OR
+                    P.Address LIKE @keyword OR
+                    P.Email LIKE @keyword OR
+                    P.Status LIKE @keyword OR
+                    CAST(S.HireDate AS NVARCHAR) LIKE @keyword OR
+                    D.DepartmentName LIKE @keyword";
                 }
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
@@ -175,7 +174,7 @@ namespace PROEL_PROJ
                 con.Open();
 
                 string query = @"UPDATE Profiles
-                         SET FirstName = @FirstName,
+                             SET FirstName = @FirstName,
                              LastName = @LastName,
                              Age = @Age,
                              Gender = @Gender,
@@ -184,7 +183,7 @@ namespace PROEL_PROJ
                              Email = @Email,
                              Status = @Status
                              
-                         WHERE ProfileID = @ProfileID";
+                            WHERE ProfileID = @ProfileID";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {

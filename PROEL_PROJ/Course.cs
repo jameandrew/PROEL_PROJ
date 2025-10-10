@@ -224,18 +224,16 @@ namespace PROEL_PROJ
             {
                 con.Open();
                 string query = @"SELECT 
-                                            c.CourseID,
-                                            c.CourseName,
-                                            c.CourseCode,
-                                            c.Description,
-                                            c.Credits,
-                                            c.Status,
-                                            d.DepartmentName
-                                            FROM 
-                                            Courses c
-                                            INNER JOIN Departments d ON i.DepartmentID = d.DepartmentID
-                                            ORDER BY 
-                                            c.CourseID DESC;";
+                            c.CourseID,
+                            c.CourseName,
+                            c.CourseCode,
+                            c.Description,
+                            c.Credits,
+                            c.Status,
+                            d.DepartmentName
+                         FROM Courses c
+                         INNER JOIN Departments d ON c.DepartmentID = d.DepartmentID
+                         ORDER BY c.CourseID DESC;";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
@@ -244,6 +242,85 @@ namespace PROEL_PROJ
                 dgv.DataSource = dt;
             }
         }
+
+
+        public static void ShowCourseDetails(int courseId)
+        {
+            using (SqlConnection con = new SqlConnection(Classes.ConString()))
+            {
+                string query = @"
+            SELECT 
+                c.CourseName,
+                c.CourseCode,
+                c.Credits,
+                c.Description,
+                d.DepartmentName,
+                ISNULL(i.FirstName + ' ' + i.LastName, 'No Instructor Assigned') AS InstructorName,
+                ISNULL(s.FirstName + ' ' + s.LastName, 'No Students Enrolled') AS StudentName
+            FROM Courses c
+            INNER JOIN Departments d ON c.DepartmentID = d.DepartmentID
+            LEFT JOIN InstructorCourses ic ON c.CourseID = ic.CourseID
+            LEFT JOIN Instructors i ON ic.InstructorID = i.InstructorID
+            LEFT JOIN Enrollment e ON c.CourseID = e.CourseID
+            LEFT JOIN Students s ON e.StudentID = s.StudentID
+            WHERE c.CourseID = @CourseID";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@CourseID", courseId);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    MessageBox.Show("No data found for this course.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                string courseName = "";
+                string courseCode = "";
+                string description = "";
+                string credits = "";
+                string department = "";
+                string instructor = "";
+                List<string> students = new List<string>();
+
+                while (reader.Read())
+                {
+                    // Initialize course details once
+                    if (string.IsNullOrEmpty(courseName))
+                    {
+                        courseName = reader["CourseName"].ToString();
+                        courseCode = reader["CourseCode"].ToString();
+                        credits = reader["Credits"].ToString();
+                        description = reader["Description"].ToString();
+                        department = reader["DepartmentName"].ToString();
+                        instructor = reader["InstructorName"].ToString();
+                    }
+
+                    string studentName = reader["StudentName"].ToString();
+                    if (studentName != "No Students Enrolled" && !students.Contains(studentName))
+                        students.Add(studentName);
+                }
+
+                reader.Close();
+
+                string studentList = students.Count > 0 ? string.Join("\n• ", students) : "No students enrolled.";
+
+                string message =
+                    $"📘 Course: {courseName}\n" +
+                    $"📗 Code: {courseCode}\n" +
+                    $"📒 Credits: {credits}\n" +
+                    $"📖 Description: {description}\n" +
+                    $"🏫 Department: {department}\n" +
+                    $"👨‍🏫 Instructor: {instructor}\n\n" +
+                    $"👥 Enrolled Students:\n• {studentList}";
+
+                MessageBox.Show(message, "Course Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
 
     }
 }

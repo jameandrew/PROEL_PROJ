@@ -207,6 +207,7 @@
             this.dgvCourse.Name = "dgvCourse";
             this.dgvCourse.Size = new System.Drawing.Size(623, 309);
             this.dgvCourse.TabIndex = 14;
+            this.dgvCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourse_CellContentClick);
             this.dgvCourse.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourse_CellDoubleClick);
             // 
             // btnSearch

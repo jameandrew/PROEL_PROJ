@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtAcademicYear = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmbSemester = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbCourse = new System.Windows.Forms.ComboBox();
+            this.lblStudentID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -52,15 +61,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblStudentID = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbCourse = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cmbSemester = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtAcademicYear = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -99,16 +99,110 @@
             this.panel2.Size = new System.Drawing.Size(686, 384);
             this.panel2.TabIndex = 6;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(271, 276);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(99, 17);
+            this.label15.TabIndex = 69;
+            this.label15.Text = "Academic Year";
+            // 
+            // txtAcademicYear
+            // 
+            this.txtAcademicYear.BackColor = System.Drawing.Color.White;
+            this.txtAcademicYear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcademicYear.Location = new System.Drawing.Point(268, 295);
+            this.txtAcademicYear.Name = "txtAcademicYear";
+            this.txtAcademicYear.Size = new System.Drawing.Size(163, 29);
+            this.txtAcademicYear.TabIndex = 68;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(486, 209);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 17);
+            this.label14.TabIndex = 67;
+            this.label14.Text = "Semester";
+            // 
+            // cmbSemester
+            // 
+            this.cmbSemester.BackColor = System.Drawing.Color.White;
+            this.cmbSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSemester.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSemester.FormattingEnabled = true;
+            this.cmbSemester.Location = new System.Drawing.Point(483, 228);
+            this.cmbSemester.Name = "cmbSemester";
+            this.cmbSemester.Size = new System.Drawing.Size(163, 28);
+            this.cmbSemester.TabIndex = 66;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(43, 277);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(78, 17);
+            this.label12.TabIndex = 65;
+            this.label12.Text = "Department";
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.BackColor = System.Drawing.Color.White;
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(40, 296);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(163, 28);
+            this.cmbDepartment.TabIndex = 64;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(43, 209);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 17);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "Course";
+            // 
+            // cmbCourse
+            // 
+            this.cmbCourse.BackColor = System.Drawing.Color.White;
+            this.cmbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourse.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCourse.FormattingEnabled = true;
+            this.cmbCourse.Location = new System.Drawing.Point(40, 228);
+            this.cmbCourse.Name = "cmbCourse";
+            this.cmbCourse.Size = new System.Drawing.Size(163, 28);
+            this.cmbCourse.TabIndex = 62;
+            // 
+            // lblStudentID
+            // 
+            this.lblStudentID.AutoSize = true;
+            this.lblStudentID.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentID.Location = new System.Drawing.Point(43, 84);
+            this.lblStudentID.Name = "lblStudentID";
+            this.lblStudentID.Size = new System.Drawing.Size(70, 17);
+            this.lblStudentID.TabIndex = 61;
+            this.lblStudentID.Text = "FirstName";
+            this.lblStudentID.Visible = false;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(277, 29);
+            this.label10.Location = new System.Drawing.Point(270, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(133, 30);
+            this.label10.Size = new System.Drawing.Size(147, 30);
             this.label10.TabIndex = 6;
-            this.label10.Text = "Add Student";
+            this.label10.Text = "Enroll Student";
             // 
             // label11
             // 
@@ -340,111 +434,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // lblStudentID
-            // 
-            this.lblStudentID.AutoSize = true;
-            this.lblStudentID.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentID.Location = new System.Drawing.Point(43, 84);
-            this.lblStudentID.Name = "lblStudentID";
-            this.lblStudentID.Size = new System.Drawing.Size(70, 17);
-            this.lblStudentID.TabIndex = 61;
-            this.lblStudentID.Text = "FirstName";
-            this.lblStudentID.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(43, 209);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 17);
-            this.label13.TabIndex = 63;
-            this.label13.Text = "Course";
-            // 
-            // cmbCourse
-            // 
-            this.cmbCourse.BackColor = System.Drawing.Color.White;
-            this.cmbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCourse.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCourse.FormattingEnabled = true;
-            this.cmbCourse.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE",
-            "PREFER NOT TO SAY"});
-            this.cmbCourse.Location = new System.Drawing.Point(40, 228);
-            this.cmbCourse.Name = "cmbCourse";
-            this.cmbCourse.Size = new System.Drawing.Size(163, 28);
-            this.cmbCourse.TabIndex = 62;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(43, 277);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 17);
-            this.label12.TabIndex = 65;
-            this.label12.Text = "Department";
-            // 
-            // cmbDepartment
-            // 
-            this.cmbDepartment.BackColor = System.Drawing.Color.White;
-            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE",
-            "PREFER NOT TO SAY"});
-            this.cmbDepartment.Location = new System.Drawing.Point(40, 296);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(163, 28);
-            this.cmbDepartment.TabIndex = 64;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(486, 209);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 17);
-            this.label14.TabIndex = 67;
-            this.label14.Text = "Semester";
-            // 
-            // cmbSemester
-            // 
-            this.cmbSemester.BackColor = System.Drawing.Color.White;
-            this.cmbSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSemester.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSemester.FormattingEnabled = true;
-            this.cmbSemester.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE",
-            "PREFER NOT TO SAY"});
-            this.cmbSemester.Location = new System.Drawing.Point(483, 228);
-            this.cmbSemester.Name = "cmbSemester";
-            this.cmbSemester.Size = new System.Drawing.Size(163, 28);
-            this.cmbSemester.TabIndex = 66;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(271, 276);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 17);
-            this.label15.TabIndex = 69;
-            this.label15.Text = "Academic Year";
-            // 
-            // txtAcademicYear
-            // 
-            this.txtAcademicYear.BackColor = System.Drawing.Color.White;
-            this.txtAcademicYear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAcademicYear.Location = new System.Drawing.Point(268, 295);
-            this.txtAcademicYear.Name = "txtAcademicYear";
-            this.txtAcademicYear.Size = new System.Drawing.Size(163, 29);
-            this.txtAcademicYear.TabIndex = 68;
-            // 
             // frmEnrollment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,6 +443,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEnrollment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEnrollment";
             this.Load += new System.EventHandler(this.frmEnrollment_Load);
             this.panel2.ResumeLayout(false);

@@ -62,6 +62,7 @@ namespace PROEL_PROJ
 
                         loginAttempts = 0;
 
+                        Classes.DisplayName(txtUname, txtPword);
                         frmDashboard dashboard = new frmDashboard();
                         this.Hide();
                         dashboard.ShowDialog();

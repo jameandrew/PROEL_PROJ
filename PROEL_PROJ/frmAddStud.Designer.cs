@@ -87,7 +87,7 @@
             this.txtAddress.Location = new System.Drawing.Point(272, 169);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(163, 29);
-            this.txtAddress.TabIndex = 49;
+            this.txtAddress.TabIndex = 48;
             // 
             // label5
             // 
@@ -106,7 +106,7 @@
             this.txtPhone.Location = new System.Drawing.Point(272, 228);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(163, 29);
-            this.txtPhone.TabIndex = 48;
+            this.txtPhone.TabIndex = 49;
             // 
             // label6
             // 
@@ -166,7 +166,7 @@
             this.btnRegister.Location = new System.Drawing.Point(157, 337);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(163, 42);
-            this.btnRegister.TabIndex = 52;
+            this.btnRegister.TabIndex = 51;
             this.btnRegister.Text = "Add";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -228,7 +228,7 @@
             this.cmbGender.Location = new System.Drawing.Point(272, 107);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(163, 28);
-            this.cmbGender.TabIndex = 46;
+            this.cmbGender.TabIndex = 47;
             // 
             // txtEmail
             // 
@@ -237,7 +237,7 @@
             this.txtEmail.Location = new System.Drawing.Point(272, 289);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 29);
-            this.txtEmail.TabIndex = 47;
+            this.txtEmail.TabIndex = 50;
             // 
             // txtAge
             // 
@@ -342,7 +342,7 @@
             this.dtpEnrolldate.Location = new System.Drawing.Point(44, 292);
             this.dtpEnrolldate.Name = "dtpEnrolldate";
             this.dtpEnrolldate.Size = new System.Drawing.Size(163, 20);
-            this.dtpEnrolldate.TabIndex = 59;
+            this.dtpEnrolldate.TabIndex = 46;
             // 
             // frmAddStud
             // 

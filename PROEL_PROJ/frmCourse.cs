@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -97,6 +98,74 @@ namespace PROEL_PROJ
             frmLogs logs = new frmLogs();  
             this.Hide();
             logs.ShowDialog();
+        }
+
+        private void dgvCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCourse.Columns[e.ColumnIndex].Name == "btnAction" && e.RowIndex >= 0)
+            {
+                int courseId = Convert.ToInt32(dgvCourse.Rows[e.RowIndex].Cells["CourseID"].Value);
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("sp_ViewCourseDetails", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CourseID", courseId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        string details = "";
+
+                        if (reader.Read())
+                        {
+                            details =
+                                $"📘 COURSE INFORMATION\n" +
+                                $"Course ID: {reader["CourseID"]}\n" +
+                                $"Name: {reader["CourseName"]}\n" +
+                                $"Code: {reader["CourseCode"]}\n" +
+                                $"Credits: {reader["Credits"]}\n" +
+                                $"Department: {reader["DepartmentName"]}\n" +
+                                $"Status: {reader["Status"]}\n\n";
+                        }
+
+                        if (reader.NextResult())
+                        {
+                            details += "👩‍🏫 ASSIGNED INSTRUCTORS:\n";
+                            bool hasInstructors = false;
+
+                            while (reader.Read())
+                            {
+                                hasInstructors = true;
+                                details +=
+                                    $"- {reader["InstructorName"]} (Hired: {Convert.ToDateTime(reader["HireDate"]).ToString("yyyy-MM-dd")}, " +
+                                    $"Assigned: {Convert.ToDateTime(reader["DateAssigned"]).ToString("yyyy-MM-dd")})\n";
+                            }
+
+                            if (!hasInstructors)
+                                details += "No instructors assigned yet.\n";
+                        }
+
+                        if (reader.NextResult())
+                        {
+                            details += "\n👨‍🎓 ENROLLED STUDENTS:\n";
+                            bool hasStudents = false;
+
+                            while (reader.Read())
+                            {
+                                hasStudents = true;
+                                details +=
+                                    $"- {reader["StudentName"]} (Enrolled: {Convert.ToDateTime(reader["EnrollmentDate"]).ToString("yyyy-MM-dd")})\n";
+                            }
+
+                            if (!hasStudents)
+                                details += "No students enrolled yet.";
+                        }
+
+                        MessageBox.Show(details, "Course Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
         }
     }
 }

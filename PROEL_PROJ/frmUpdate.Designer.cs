@@ -136,7 +136,7 @@
             this.txtAddress.Location = new System.Drawing.Point(272, 194);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(163, 29);
-            this.txtAddress.TabIndex = 49;
+            this.txtAddress.TabIndex = 47;
             // 
             // label5
             // 
@@ -161,7 +161,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(275, 295);
+            this.label6.Location = new System.Drawing.Point(47, 295);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 17);
             this.label6.TabIndex = 56;
@@ -212,7 +212,7 @@
             this.btnRegister.BackColor = System.Drawing.Color.DarkGray;
             this.btnRegister.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(44, 307);
+            this.btnRegister.Location = new System.Drawing.Point(272, 301);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(163, 42);
             this.btnRegister.TabIndex = 52;
@@ -239,10 +239,10 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(272, 314);
+            this.txtEmail.Location = new System.Drawing.Point(44, 314);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 29);
-            this.txtEmail.TabIndex = 47;
+            this.txtEmail.TabIndex = 49;
             // 
             // txtAge
             // 
