@@ -18,36 +18,19 @@ namespace PROEL_PROJ
         {
             InitializeComponent();
         }
+
         string connectionString = Course.ConString();
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            frmDashboard dashboard = new frmDashboard();
-            this.Hide();
-            dashboard.ShowDialog();
-        }
-
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
-            frmUpdate_Stud stud = new frmUpdate_Stud();
-            this.Hide();
-            stud.ShowDialog();
-        }
-
-        private void btnTeacher_Click(object sender, EventArgs e)
-        {
-            frmTeachers teachers = new frmTeachers();
-            this.Hide();
-            teachers.ShowDialog();
-        }
-
+      
         private void frmCourse_Load(object sender, EventArgs e)
         {
+            lblUser.Text = Classes.FullName;
             Classes.ApplySidebarStyle(btnDashboard);
             Classes.ApplySidebarStyle(btnStudents);
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnCourse);
+            Classes.ApplySidebarStyle(btnReports);
             Classes.ApplySidebarStyle(btnAdd);
             Classes.ApplySidebarStyle(btnDelete);
 
@@ -64,11 +47,19 @@ namespace PROEL_PROJ
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int courseid = Convert.ToInt32(dgvCourse.CurrentRow.Cells["CourseID"].Value);
-            course.UpdateStatus(courseid, "INACTIVE");
-            Logs.Record("Delete Course", $"Course set to INACTIVE by {Logs.CurrentUserName}");
-            MessageBox.Show("Course set to INACTIVE.");
-            Course.ShowCount(lblActive, lblPending, lblInactive);
+            DialogResult result = MessageBox.Show("Would you like to delete this Course?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                int courseid = Convert.ToInt32(dgvCourse.CurrentRow.Cells["CourseID"].Value);
+                course.UpdateStatus(courseid, "INACTIVE");
+                Logs.Record("Delete Course", $"Course set to INACTIVE by {Logs.CurrentUserName}");
+                MessageBox.Show("Course set to INACTIVE.");
+                Course.ShowCount(lblActive, lblPending, lblInactive);
+                course.LoadCourses(connectionString, dgvCourse);
+            }
+            else { }
+                
         }
 
         private void dgvCourse_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -91,13 +82,6 @@ namespace PROEL_PROJ
                 updateForm.ShowDialog();
             }
             Course.ReLoadCourse(dgvCourse);
-        }
-
-        private void btnLogs_Click(object sender, EventArgs e)
-        {
-            frmLogs logs = new frmLogs();  
-            this.Hide();
-            logs.ShowDialog();
         }
 
         private void dgvCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -166,6 +150,59 @@ namespace PROEL_PROJ
                     }
                 }
             }
+        }
+
+        private void btnDashboard_Click_1(object sender, EventArgs e)
+        {
+            frmDashboard frmDashboard = new frmDashboard();
+            this.Hide();    
+            frmDashboard.ShowDialog();
+        }
+
+        private void btnStudents_Click_1(object sender, EventArgs e)
+        {
+            frmUpdate_Stud frmUpdate_Stud = new frmUpdate_Stud();
+            this.Hide();
+            frmUpdate_Stud.ShowDialog();
+        }
+
+        private void btnTeacher_Click_1(object sender, EventArgs e)
+        {
+            frmTeachers frmTeachers = new frmTeachers();
+            this.Hide();
+            frmTeachers.ShowDialog();
+        }
+
+        private void btnLogs_Click_1(object sender, EventArgs e)
+        {
+            frmLogs frmLogs = new frmLogs();
+            this.Hide();
+            frmLogs.ShowDialog();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                frmLogIn logIn = new frmLogIn();
+                this.Hide();
+                logIn.ShowDialog();
+            }
+            else { }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            Course.SearchCourse(dgvCourse, txtSearch.Text.Trim());
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            frmReports frmReports = new frmReports();
+            this.Hide();
+            frmReports.ShowDialog();
         }
     }
 }

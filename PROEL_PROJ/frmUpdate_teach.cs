@@ -37,22 +37,29 @@ namespace PROEL_PROJ
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            Classes.UpdateStudentInfo(
-            profileId,
-            txtFname.Text,
-            txtLname.Text,
-            Convert.ToInt32(txtAge.Text),
-            cmbGender.SelectedItem.ToString(),
-            txtPhone.Text,
-            txtAddress.Text,
-            txtEmail.Text,
-            Status
-            );
+            DialogResult result = MessageBox.Show("Are you sure you want update this?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                Classes.UpdateStudentInfo(
+                profileId,
+                txtFname.Text,
+                txtLname.Text,
+                Convert.ToInt32(txtAge.Text),
+                cmbGender.SelectedItem.ToString(),
+                txtPhone.Text,
+                txtAddress.Text,
+                txtEmail.Text,
+                Status
+                );
 
-            Logs.Record("Updated Student",
-                $"Student {txtFname.Text} {txtLname.Text} was updated by {Logs.CurrentUserName}.",
-                txtFname.Text, txtLname.Text);
-            this.Close();
+                Logs.Record("Updated Student",
+                    $"Student {txtFname.Text} {txtLname.Text} was updated by {Logs.CurrentUserName}.",
+                    txtFname.Text, txtLname.Text);
+                this.Close();
+            }
+            else { }
+               
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -130,12 +130,13 @@ namespace PROEL_PROJ
                 D.DepartmentName
                 FROM Profiles P
                 INNER JOIN Instructors S ON P.ProfileID = S.ProfileID
-                INNER JOIN Departments D ON S.DepartmentID = D.DepartmentID";
+                INNER JOIN Departments D ON S.DepartmentID = D.DepartmentID
+                WHERE P.Status = 'ACTIVE'";
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
                     query += @"
-                    WHERE 
+                    AND 
                     CAST(P.ProfileID AS NVARCHAR) LIKE @keyword OR
                     P.FirstName LIKE @keyword OR
                     P.LastName LIKE @keyword OR
@@ -148,7 +149,7 @@ namespace PROEL_PROJ
                     CAST(S.HireDate AS NVARCHAR) LIKE @keyword OR
                     D.DepartmentName LIKE @keyword";
                 }
-
+                query += " ORDER BY ProfileID DESC";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     if (!string.IsNullOrEmpty(keyword))

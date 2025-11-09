@@ -121,50 +121,6 @@ namespace PROEL_PROJ
             }
         }
 
-        public static void SearchFields(DataGridView dgv, string keyword = "")
-        {
-            using (SqlConnection con = new SqlConnection(ConString()))
-            {
-                con.Open();
-
-                string query = @"
-                   SELECT P.ProfileID, P.FirstName, P.LastName, P.Age, P.Gender, 
-                   P.Phone, P.Address, P.Email, P.Status, S.EnrollmentDate
-                   FROM Profiles P
-                   INNER JOIN Students S ON P.ProfileID = S.ProfileID";
-
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    query += @"
-                     WHERE 
-                    CAST(P.ProfileID AS NVARCHAR) LIKE @keyword OR
-                    P.FirstName LIKE @keyword OR
-                    P.LastName LIKE @keyword OR
-                    CAST(P.Age AS NVARCHAR) LIKE @keyword OR
-                    P.Gender LIKE @keyword OR
-                    P.Phone LIKE @keyword OR
-                    P.Address LIKE @keyword OR
-                    P.Email LIKE @keyword OR
-                    P.Status LIKE @keyword OR
-                    S.ENROLLMENTDATE LIKE @keyword";
-                }
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    if (!string.IsNullOrEmpty(keyword))
-                    {
-                        cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                    }
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    dgv.DataSource = dt;
-                }
-            }
-        }
-
         public static void LoadInstructors(ComboBox cmb)
         {
             using (SqlConnection con = new SqlConnection(ConString()))
@@ -287,7 +243,6 @@ namespace PROEL_PROJ
 
                 while (reader.Read())
                 {
-                    // Initialize course details once
                     if (string.IsNullOrEmpty(courseName))
                     {
                         courseName = reader["CourseName"].ToString();
@@ -319,6 +274,62 @@ namespace PROEL_PROJ
                 MessageBox.Show(message, "Course Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        public static void SearchCourse(DataGridView dgv, string keyword = "")
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Classes.ConString()))
+                {
+                    con.Open();
+
+                    string query = @"
+                SELECT 
+                    c.CourseID,
+                    c.CourseName,
+                    c.CourseCode,
+                    c.Credits,
+                    d.DepartmentName,
+                    c.Description,
+                    c.Status
+                FROM Courses c
+                INNER JOIN Departments d ON c.DepartmentID = d.DepartmentID
+                WHERE c.Status = 'ACTIVE'";
+
+                    if (!string.IsNullOrEmpty(keyword))
+                    {
+                        query += @"
+                    AND (
+                        CAST(c.CourseID AS NVARCHAR(50)) LIKE @keyword OR
+                        c.CourseName LIKE @keyword OR
+                        c.CourseCode LIKE @keyword OR
+                        CAST(c.Credits AS NVARCHAR(50)) LIKE @keyword OR
+                        d.DepartmentName LIKE @keyword OR
+                        c.Description LIKE @keyword
+                    )";
+                    }
+
+                    query += " ORDER BY c.CourseID DESC;";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        if (!string.IsNullOrEmpty(keyword))
+                            cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching logs: " + ex.Message + "\n\n" + ex.StackTrace,
+                    "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
 

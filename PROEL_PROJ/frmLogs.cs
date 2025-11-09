@@ -21,16 +21,30 @@ namespace PROEL_PROJ
         string connectionString = Classes.ConString();
         private void frmLogs_Load(object sender, EventArgs e)
         {
+            lblUser.Text = Classes.FullName;
+            lbl.Text = $"{Classes.RoleName}, Logs";
             Classes.ApplySidebarStyle(btnDashboard);
             Classes.ApplySidebarStyle(btnStudents);
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
+            Classes.ApplySidebarStyle(btnReports);
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnCourse);
             Logs.LoadLogs(dgvLogs);
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //string keyword = txtSearch.Text.Trim();
+            //Course.SearchLogs(dgvLogs);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            Logs.SearchLogs(dgvLogs, txtSearch.Text.Trim());
+        }
+
+        private void btnDashboard_Click_1(object sender, EventArgs e)
         {
             frmDashboard frmDashboard = new frmDashboard();
             this.Hide();
@@ -46,9 +60,9 @@ namespace PROEL_PROJ
 
         private void btnTeacher_Click(object sender, EventArgs e)
         {
-            frmTeachers frmTeachers = new frmTeachers();
+            frmTeachers teachers = new frmTeachers();
             this.Hide();
-            frmTeachers.ShowDialog();
+            teachers.ShowDialog();
         }
 
         private void btnCourse_Click(object sender, EventArgs e)
@@ -58,15 +72,31 @@ namespace PROEL_PROJ
             frmCourse.ShowDialog();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnLogs_Click(object sender, EventArgs e)
         {
-            //string keyword = txtSearch.Text.Trim();
-            //Course.SearchLogs(dgvLogs);
+            frmLogs frmLogs = new frmLogs();
+            this.Hide();
+            frmLogs.ShowDialog();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Logs.SearchLogs(dgvLogs, txtSearch.Text.Trim());
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                frmLogIn logIn = new frmLogIn();
+                this.Hide();
+                logIn.ShowDialog();
+            }
+            else { }
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            frmReports frmReports = new frmReports();
+            this.Hide();
+            frmReports.ShowDialog();
         }
     }
 }

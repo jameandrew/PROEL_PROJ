@@ -28,36 +28,10 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnStudents);
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
+            Classes.ApplySidebarStyle(btnReports);
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnCourse);
             LoadPopulationCharts();
-        }
-
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
-            frmUpdate_Stud update = new frmUpdate_Stud();
-            this.Hide();
-            update.ShowDialog();
-        }
-
-        private void btnTeacher_Click(object sender, EventArgs e)
-        {
-            frmTeachers teachers = new frmTeachers();
-            this.Hide();
-            teachers.ShowDialog();
-        }
-
-        private void btnLogOut_Click_1(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
-            {
-                frmLogIn logIn = new frmLogIn();
-                this.Hide();
-                logIn.ShowDialog();
-            }
-            else { }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -188,6 +162,24 @@ namespace PROEL_PROJ
             }
         }
 
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                frmLogIn logIn = new frmLogIn();
+                this.Hide();
+                logIn.ShowDialog();
+            }
+            else { }
+        }
 
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            frmReports reports = new frmReports();
+            this.Hide();
+            reports.ShowDialog();
+        }
     }
 }

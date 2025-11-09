@@ -119,6 +119,7 @@ namespace PROEL_PROJ
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show($"✅ Student enrolled successfully in {cmbCourse.Text}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearFields();
                 }
             }
             catch (SqlException ex)
@@ -144,6 +145,21 @@ namespace PROEL_PROJ
             {
                 LoadCourses(deptID);
             }
+        }
+
+        private void ClearFields()
+        {
+            txtFname.Clear();
+            txtLname.Clear();
+            txtAge.Clear();
+            cmbGender.SelectedIndex = -1;
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress.Clear();
+            txtAcademicYear.Clear();
+            cmbCourse.SelectedIndex = -1;
+            cmbDepartment.SelectedIndex = -1;
+            cmbSemester.SelectedIndex = -1;
         }
     }
 }

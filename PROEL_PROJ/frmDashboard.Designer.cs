@@ -38,13 +38,16 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblRole = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chartCourses = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartStudents = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartTeachers = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReports = new System.Windows.Forms.Button();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -52,8 +55,6 @@
             this.btnStudents = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.lblRole = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartStudents)).BeginInit();
@@ -76,6 +77,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(626, 556);
             this.panel2.TabIndex = 5;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.ForeColor = System.Drawing.Color.Black;
+            this.lblRole.Location = new System.Drawing.Point(21, 21);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(20, 25);
+            this.lblRole.TabIndex = 8;
+            this.lblRole.Text = "-";
             // 
             // label3
             // 
@@ -158,9 +170,21 @@
             this.chartTeachers.TabIndex = 1;
             this.chartTeachers.Text = "chart1";
             // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(44, 145);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(15, 20);
+            this.lblUser.TabIndex = 7;
+            this.lblUser.Text = "-";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.panel1.Controls.Add(this.btnReports);
             this.panel1.Controls.Add(this.lblUser);
             this.panel1.Controls.Add(this.btnLogs);
             this.panel1.Controls.Add(this.btnCourse);
@@ -173,6 +197,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 556);
             this.panel1.TabIndex = 8;
+            // 
+            // btnReports
+            // 
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReports.Image = global::PROEL_PROJ.Properties.Resources.seo_report;
+            this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.Location = new System.Drawing.Point(1, 428);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(209, 48);
+            this.btnReports.TabIndex = 9;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnLogs
             // 
@@ -217,6 +256,7 @@
             this.btnLogOut.TabIndex = 4;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnTeacher
             // 
@@ -273,28 +313,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(44, 145);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(15, 20);
-            this.lblUser.TabIndex = 7;
-            this.lblUser.Text = "-";
-            // 
-            // lblRole
-            // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRole.ForeColor = System.Drawing.Color.Black;
-            this.lblRole.Location = new System.Drawing.Point(21, 21);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(20, 25);
-            this.lblRole.TabIndex = 8;
-            this.lblRole.Text = "-";
-            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +324,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDashboard";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -323,21 +341,22 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnLogs;
-        private System.Windows.Forms.Button btnCourse;
-        private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Button btnTeacher;
-        private System.Windows.Forms.Button btnStudents;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartTeachers;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartCourses;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStudents;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnStudents;
+        private System.Windows.Forms.Button btnTeacher;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnCourse;
+        private System.Windows.Forms.Button btnLogs;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Button btnReports;
+        private System.Windows.Forms.Panel panel1;
     }
 }

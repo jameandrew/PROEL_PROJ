@@ -48,6 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -112,17 +118,47 @@
     <Compile Include="frmEnrollment.Designer.cs">
       <DependentUpon>frmEnrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInstructorDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInstructorDashboard.Designer.cs">
+      <DependentUpon>frmInstructorDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInstructorInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInstructorInformation.Designer.cs">
+      <DependentUpon>frmInstructorInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogs.Designer.cs">
       <DependentUpon>frmLogs.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReports.Designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSign_Up.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSign_Up.Designer.cs">
       <DependentUpon>frmSign_Up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudDashboard.Designer.cs">
+      <DependentUpon>frmStudDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudentsInformatio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudentsInformatio.Designer.cs">
+      <DependentUpon>frmStudentsInformatio.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTeachers.cs">
       <SubType>Form</SubType>
@@ -157,6 +193,7 @@
     <Compile Include="Logs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports.cs" />
     <Compile Include="Teacher.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -182,11 +219,26 @@
     <EmbeddedResource Include="frmEnrollment.resx">
       <DependentUpon>frmEnrollment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInstructorDashboard.resx">
+      <DependentUpon>frmInstructorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInstructorInformation.resx">
+      <DependentUpon>frmInstructorInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogs.resx">
       <DependentUpon>frmLogs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSign_Up.resx">
       <DependentUpon>frmSign_Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudDashboard.resx">
+      <DependentUpon>frmStudDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudentsInformatio.resx">
+      <DependentUpon>frmStudentsInformatio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTeachers.resx">
       <DependentUpon>frmTeachers.cs</DependentUpon>
@@ -213,6 +265,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -294,6 +347,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seo-report.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

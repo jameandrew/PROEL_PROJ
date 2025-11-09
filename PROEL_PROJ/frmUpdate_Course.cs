@@ -51,8 +51,19 @@ namespace PROEL_PROJ
                 Logs.Record("Updated Course",
                 $"Course {txtCourseName.Text} was Updated by {Logs.CurrentUserName}.",
                 txtCourseName.Text);
+                clearfileds();
             }
             else { }
+        }
+
+        private void clearfileds()
+        {
+            txtCourseName.Clear();
+            txtCourseCode.Clear();
+            txtCredit.Clear();
+            txtDescription.Clear();
+            cmbDepartment.SelectedValue = -1;
+
         }
 
         private void frmUpdate_Course_Load(object sender, EventArgs e)

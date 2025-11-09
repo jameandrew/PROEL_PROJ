@@ -39,8 +39,6 @@
             this.cmbCourse = new System.Windows.Forms.ComboBox();
             this.lblStudentID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,6 +59,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,6 +68,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.txtAddress);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.txtAcademicYear);
             this.panel2.Controls.Add(this.label14);
@@ -79,8 +79,6 @@
             this.panel2.Controls.Add(this.cmbCourse);
             this.panel2.Controls.Add(this.lblStudentID);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.txtAddress);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtPhone);
             this.panel2.Controls.Add(this.label6);
@@ -103,7 +101,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(271, 276);
+            this.label15.Location = new System.Drawing.Point(43, 267);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(99, 17);
             this.label15.TabIndex = 69;
@@ -113,7 +111,7 @@
             // 
             this.txtAcademicYear.BackColor = System.Drawing.Color.White;
             this.txtAcademicYear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAcademicYear.Location = new System.Drawing.Point(268, 295);
+            this.txtAcademicYear.Location = new System.Drawing.Point(40, 286);
             this.txtAcademicYear.Name = "txtAcademicYear";
             this.txtAcademicYear.Size = new System.Drawing.Size(163, 29);
             this.txtAcademicYear.TabIndex = 68;
@@ -143,7 +141,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(43, 277);
+            this.label12.Location = new System.Drawing.Point(486, 145);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 17);
             this.label12.TabIndex = 65;
@@ -155,7 +153,7 @@
             this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(40, 296);
+            this.cmbDepartment.Location = new System.Drawing.Point(483, 164);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(163, 28);
             this.cmbDepartment.TabIndex = 64;
@@ -204,25 +202,6 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Enroll Student";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(271, 145);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 17);
-            this.label11.TabIndex = 58;
-            this.label11.Text = "Address";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.White;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(268, 164);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(163, 29);
-            this.txtAddress.TabIndex = 49;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -266,7 +245,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(486, 145);
+            this.label3.Location = new System.Drawing.Point(271, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 17);
             this.label3.TabIndex = 53;
@@ -297,7 +276,7 @@
             this.btnRegister.BackColor = System.Drawing.Color.DarkGray;
             this.btnRegister.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(483, 286);
+            this.btnRegister.Location = new System.Drawing.Point(268, 279);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(163, 42);
             this.btnRegister.TabIndex = 52;
@@ -333,7 +312,7 @@
             // 
             this.txtAge.BackColor = System.Drawing.Color.White;
             this.txtAge.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAge.Location = new System.Drawing.Point(483, 164);
+            this.txtAge.Location = new System.Drawing.Point(268, 164);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(163, 29);
             this.txtAge.TabIndex = 45;
@@ -434,6 +413,16 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(483, 292);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(163, 29);
+            this.txtAddress.TabIndex = 70;
+            this.txtAddress.Visible = false;
+            // 
             // frmEnrollment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,8 +447,6 @@
         #endregion
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label6;
@@ -489,5 +476,6 @@
         private System.Windows.Forms.ComboBox cmbSemester;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtAcademicYear;
+        private System.Windows.Forms.TextBox txtAddress;
     }
 }

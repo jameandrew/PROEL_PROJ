@@ -54,6 +54,7 @@ namespace PROEL_PROJ
 
         private void frmUpdate_Stud_Load(object sender, EventArgs e)
         {
+            lblUser.Text = Classes.FullName;
             Classes.ApplySidebarStyle(btnDashboard);
             Classes.ApplySidebarStyle(btnStudents);
             Classes.ApplySidebarStyle(btnTeacher);
@@ -62,6 +63,7 @@ namespace PROEL_PROJ
             Classes.ApplySidebarStyle(btnAdd);
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnCourse);
+            Classes.ApplySidebarStyle(btnReports);
             Classes.ApplySidebarStyle(btnDelete);
             Classes.ApplySidebarStyle(button1);
             Classes.transparent(btnSearch);
@@ -149,12 +151,20 @@ namespace PROEL_PROJ
 
         private void btnDelete_Click(object sender, EventArgs e)    
         {
-            int profileId = Convert.ToInt32(dgvStudent.CurrentRow.Cells["ProfileID"].Value);
-            classes.UpdateStatus(profileId, "INACTIVE");
-            Logs.Record("Delete Student", $"Student set to INACTIVE by {Logs.CurrentUserName}");
+            DialogResult result = MessageBox.Show("Would you like to delete this Student?", "Confirmation",
+           MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                int profileId = Convert.ToInt32(dgvStudent.CurrentRow.Cells["ProfileID"].Value);
+                classes.UpdateStatus(profileId, "INACTIVE");
+                Logs.Record("Delete Student", $"Student set to INACTIVE by {Logs.CurrentUserName}");
 
-            MessageBox.Show("Student set to INACTIVE.");
-            Teacher.ShowCountTeach(lblActive, lblPending, lblInactive);
+                MessageBox.Show("Student set to INACTIVE.");
+                Classes.ShowCountStud(lblActive, lblPending, lblInactive);
+                classes.LoadDataStudent(connectionString, dgvStudent);
+            }
+            else { }
+                
         }
 
         private void btnLogs_Click(object sender, EventArgs e)
@@ -292,12 +302,57 @@ namespace PROEL_PROJ
                 }
             }
         }
+        private void btnDashboard_Click_1(object sender, EventArgs e)
+        {
+            frmDashboard frmDashboard = new frmDashboard();
+            this.Hide();
+            frmDashboard.ShowDialog();
+        }
+
+        private void btnTeacher_Click_1(object sender, EventArgs e)
+        {
+            frmTeachers frmTeachers = new frmTeachers();
+            this.Hide();
+            frmTeachers.ShowDialog();
+        }
 
         private void btnCourse_Click(object sender, EventArgs e)
         {
-            frmCourse course = new frmCourse();
+            frmCourse frmCourse = new frmCourse();
             this.Hide();
-            course.ShowDialog();
+            frmCourse.ShowDialog();
+        }
+
+        private void btnLogs_Click_1(object sender, EventArgs e)
+        {
+            frmLogs frmLogs = new frmLogs();
+            this.Hide();
+            frmLogs.ShowDialog();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                frmLogIn logIn = new frmLogIn();
+                this.Hide();
+                logIn.ShowDialog();
+            }
+            else { }
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            frmReports frmReports = new frmReports();
+            this.Hide();
+            frmReports.ShowDialog();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

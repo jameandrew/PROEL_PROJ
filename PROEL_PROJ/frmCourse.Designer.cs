@@ -44,6 +44,8 @@
             this.dgvCourse = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.lblUser = new System.Windows.Forms.Label();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -67,6 +69,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(157, 29);
             this.txtSearch.TabIndex = 5;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // panel4
             // 
@@ -183,7 +186,7 @@
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Location = new System.Drawing.Point(207, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 469);
+            this.panel2.Size = new System.Drawing.Size(626, 556);
             this.panel2.TabIndex = 5;
             // 
             // btnDelete
@@ -205,7 +208,7 @@
             this.dgvCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCourse.Location = new System.Drawing.Point(1, 160);
             this.dgvCourse.Name = "dgvCourse";
-            this.dgvCourse.Size = new System.Drawing.Size(623, 309);
+            this.dgvCourse.Size = new System.Drawing.Size(623, 396);
             this.dgvCourse.TabIndex = 14;
             this.dgvCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourse_CellContentClick);
             this.dgvCourse.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourse_CellDoubleClick);
@@ -224,6 +227,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.panel1.Controls.Add(this.btnReports);
+            this.panel1.Controls.Add(this.lblUser);
             this.panel1.Controls.Add(this.btnLogs);
             this.panel1.Controls.Add(this.btnCourse);
             this.panel1.Controls.Add(this.btnLogOut);
@@ -233,8 +238,34 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 469);
-            this.panel1.TabIndex = 6;
+            this.panel1.Size = new System.Drawing.Size(210, 556);
+            this.panel1.TabIndex = 9;
+            // 
+            // btnReports
+            // 
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(200)))), ((int)(((byte)(184)))));
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReports.Image = global::PROEL_PROJ.Properties.Resources.seo_report;
+            this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.Location = new System.Drawing.Point(1, 428);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(209, 48);
+            this.btnReports.TabIndex = 8;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(44, 145);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(15, 20);
+            this.lblUser.TabIndex = 7;
+            this.lblUser.Text = "-";
             // 
             // btnLogs
             // 
@@ -243,13 +274,13 @@
             this.btnLogs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLogs.Image = global::PROEL_PROJ.Properties.Resources.log;
             this.btnLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogs.Location = new System.Drawing.Point(0, 357);
+            this.btnLogs.Location = new System.Drawing.Point(0, 381);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(209, 48);
             this.btnLogs.TabIndex = 6;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
-            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
+            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click_1);
             // 
             // btnCourse
             // 
@@ -258,7 +289,7 @@
             this.btnCourse.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnCourse.Image = global::PROEL_PROJ.Properties.Resources.online_course;
             this.btnCourse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCourse.Location = new System.Drawing.Point(1, 311);
+            this.btnCourse.Location = new System.Drawing.Point(1, 335);
             this.btnCourse.Name = "btnCourse";
             this.btnCourse.Size = new System.Drawing.Size(209, 48);
             this.btnCourse.TabIndex = 5;
@@ -272,12 +303,13 @@
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLogOut.Image = global::PROEL_PROJ.Properties.Resources.logout1;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1, 418);
+            this.btnLogOut.Location = new System.Drawing.Point(1, 507);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(209, 48);
             this.btnLogOut.TabIndex = 4;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnTeacher
             // 
@@ -286,13 +318,13 @@
             this.btnTeacher.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnTeacher.Image = global::PROEL_PROJ.Properties.Resources.teacher;
             this.btnTeacher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTeacher.Location = new System.Drawing.Point(1, 265);
+            this.btnTeacher.Location = new System.Drawing.Point(1, 289);
             this.btnTeacher.Name = "btnTeacher";
             this.btnTeacher.Size = new System.Drawing.Size(209, 48);
             this.btnTeacher.TabIndex = 3;
             this.btnTeacher.Text = "Teachers";
             this.btnTeacher.UseVisualStyleBackColor = false;
-            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
+            this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click_1);
             // 
             // btnStudents
             // 
@@ -301,13 +333,13 @@
             this.btnStudents.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnStudents.Image = global::PROEL_PROJ.Properties.Resources.graduating_student;
             this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudents.Location = new System.Drawing.Point(1, 219);
+            this.btnStudents.Location = new System.Drawing.Point(1, 243);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Size = new System.Drawing.Size(209, 48);
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = false;
-            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click_1);
             // 
             // btnDashboard
             // 
@@ -316,13 +348,13 @@
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDashboard.Image = global::PROEL_PROJ.Properties.Resources.dashboard;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(1, 173);
+            this.btnDashboard.Location = new System.Drawing.Point(1, 197);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(209, 48);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click_1);
             // 
             // pictureBox1
             // 
@@ -338,9 +370,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 468);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(832, 555);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -356,35 +388,37 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnStudents;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblInactive;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Button btnTeacher;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCourse;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlActive;
         private System.Windows.Forms.Label lblActive;
-        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnLogs;
         private System.Windows.Forms.DataGridView dgvCourse;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Button btnLogs;
+        private System.Windows.Forms.Button btnCourse;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnTeacher;
+        private System.Windows.Forms.Button btnStudents;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnReports;
     }
 }

@@ -63,10 +63,31 @@ namespace PROEL_PROJ
                         loginAttempts = 0;
 
                         Classes.DisplayName(txtUname, txtPword);
-                        frmDashboard dashboard = new frmDashboard();
-                        this.Hide();
-                        dashboard.ShowDialog();
-                        this.Close();
+                        if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            frmDashboard dashboard = new frmDashboard();
+                            this.Hide();
+                            dashboard.ShowDialog();
+                            this.Close();
+                        }
+                        else if (role.Equals("Student", StringComparison.OrdinalIgnoreCase))
+                        {
+                            frmStudDashboard studentForm = new frmStudDashboard();
+                            this.Hide();
+                            studentForm.ShowDialog();
+                            this.Close();
+                        }
+                        else if (role.Equals("Instructor", StringComparison.OrdinalIgnoreCase))
+                        {
+                            frmTeachDashboard teachDashboard = new frmTeachDashboard();
+                            this.Hide();
+                            teachDashboard.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Unknown role: {role}. Access denied.");
+                        }
                     }
                     else
                     {
@@ -79,8 +100,28 @@ namespace PROEL_PROJ
                         }
                         else
                         {
-                            MessageBox.Show("Maximum login attempts reached. You are locked out.");
-                            btnLogin.Enabled = false;
+                            // Maximum attempts reached - ask if user wants to retry
+                            DialogResult result = MessageBox.Show(
+                                "Maximum login attempts reached. Would you like to try again?",
+                                "Login Failed",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                // Reset attempts and clear fields
+                                loginAttempts = 0;
+                                txtUname.Clear();
+                                txtPword.Clear();
+                                txtUname.Focus();
+                                MessageBox.Show("Login attempts have been reset. Please try again.");
+                            }
+                            else
+                            {
+                                // User chose not to retry - disable login
+                                MessageBox.Show("You are now locked out.");
+                                btnLogin.Enabled = false;
+                            }
                         }
                     }
                 }
@@ -95,7 +136,7 @@ namespace PROEL_PROJ
 
         private void lblSignUp_MouseLeave(object sender, EventArgs e)
         {
-            lblSignUp.ForeColor= Color.Black;
+            lblSignUp.ForeColor = Color.Black;
             this.Cursor = Cursors.Default;
         }
 
@@ -110,7 +151,7 @@ namespace PROEL_PROJ
                 sign_Up.ShowDialog();
             }
         }
-
+        
         private void frmLogIn_Load(object sender, EventArgs e)
         {
         }

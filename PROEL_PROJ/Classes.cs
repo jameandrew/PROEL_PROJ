@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Contracts;
 using System.Drawing;
-using System.Linq;  
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +18,7 @@ namespace PROEL_PROJ
         private DataTable dt;
 
         public static string UserID { get; set; }
+        public static string Username { get; set; }
         public static int ProfileID { get; set; }
         public static string FullName { get; set; }
         public static string RoleName { get; set; }
@@ -130,11 +131,11 @@ namespace PROEL_PROJ
                 int pendingCount = 0;
                 int inactiveCount = 0;
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     string status = reader["Status"].ToString();
                     int total = Convert.ToInt32(reader["Total"]);
-                    switch(status)
+                    switch (status)
                     {
                         case "ACTIVE":
                             activeCount = total;
@@ -256,7 +257,7 @@ namespace PROEL_PROJ
 
             course.Enabled = true;
             department.Enabled = true;
-        }       
+        }
 
         public static void DisplayName(TextBox user, TextBox password)
         {
@@ -266,6 +267,7 @@ namespace PROEL_PROJ
                 string query = @"
                 SELECT 
                 u.UserID,
+                u.Username,
                 u.ProfileID,
                 CONCAT(p.FirstName, ' ', p.LastName) AS FullName,
                 r.RoleName
@@ -283,7 +285,8 @@ namespace PROEL_PROJ
 
                     if (reader.Read())
                     {
-                        UserID = (reader["UserID"].ToString());
+                        UserID = reader["UserID"].ToString();
+                        Username = reader["Username"].ToString();  // ADDED
                         ProfileID = Convert.ToInt32(reader["ProfileID"]);
                         FullName = reader["FullName"].ToString();
                         RoleName = reader["RoleName"].ToString();
@@ -298,8 +301,6 @@ namespace PROEL_PROJ
                     }
                 }
             }
-
         }
-
     }
 }

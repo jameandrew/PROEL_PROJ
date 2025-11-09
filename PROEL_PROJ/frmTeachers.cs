@@ -22,12 +22,14 @@ namespace PROEL_PROJ
         string connectionString = Classes.ConString();
         private void frmTeachers_Load(object sender, EventArgs e)
         {
+            lblUser.Text = Classes.FullName;
             Classes.ApplySidebarStyle(btnDashboard);
             Classes.ApplySidebarStyle(btnStudents);
             Classes.ApplySidebarStyle(btnTeacher);
             Classes.ApplySidebarStyle(btnLogs);
             Classes.ApplySidebarStyle(btnLogOut);
             Classes.ApplySidebarStyle(btnCourse);
+            Classes.ApplySidebarStyle(btnReports);
             Classes.ApplySidebarStyle(btnAdd);
             Classes.ApplySidebarStyle(btnDelete);
             Classes.ApplySidebarStyle(button1);
@@ -37,38 +39,9 @@ namespace PROEL_PROJ
 
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            frmDashboard dashboard = new frmDashboard();
-            this.Hide();
-            dashboard.ShowDialog();
-        }
-
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
-            {
-                frmLogIn logIn = new frmLogIn();
-                this.Hide();
-                logIn.ShowDialog();
-            }
-            else { }
-        }
-
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
-            frmUpdate_Stud stud = new frmUpdate_Stud();
-            this.Hide();
-            stud.ShowDialog();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddTeach teach = new frmAddTeach();
-            this.Hide();
-            teach.ShowDialog();
+            
         }
 
         private void LoadTeachers()
@@ -100,22 +73,8 @@ namespace PROEL_PROJ
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txtSearch.Text.Trim();
-            Teacher.SearchFieldsTeach(dgvTeacher, keyword);
-        }
-
-        private void btnDashboard_Click_1(object sender, EventArgs e)
-        {
-            frmDashboard dashboard = new frmDashboard();
-            this.Hide();
-            dashboard.ShowDialog();
-        }
-
-        private void btnStudents_Click_1(object sender, EventArgs e)
-        {
-            frmUpdate_Stud stud = new frmUpdate_Stud();
-            this.Hide();
-            stud.ShowDialog();
+            //string keyword = txtSearch.Text.Trim();
+            //Teacher.SearchFieldsTeach(dgvTeacher, keyword);
         }
 
         private void dgvTeacher_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -144,32 +103,20 @@ namespace PROEL_PROJ
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int profileId = Convert.ToInt32(dgvTeacher.CurrentRow.Cells["ProfileID"].Value);
-            teach.UpdateStatus(profileId, "INACTIVE");
+            DialogResult result = MessageBox.Show("Would you like to delete this teacher?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                int profileId = Convert.ToInt32(dgvTeacher.CurrentRow.Cells["ProfileID"].Value);
+                teach.UpdateStatus(profileId, "INACTIVE");
 
-            Logs.Record("Delete Teacher", $"Teacher set to INACTIVE by {Logs.CurrentUserName}");
+                Logs.Record("Delete Teacher", $"Teacher set to INACTIVE by {Logs.CurrentUserName}");
 
-            MessageBox.Show("Teacher set to INACTIVE.");
-            Teacher.ShowCountTeach(lblActive, lblPending, lblInactive);
-        }
-
-        private void btnCourse_Click(object sender, EventArgs e)
-        {
-            frmCourse course = new frmCourse();
-            this.Hide();
-            course.ShowDialog();
-        }
-
-        private void dgvTeacher_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnLogs_Click(object sender, EventArgs e)
-        {
-            frmLogs frmLogs = new frmLogs();
-            this.Hide();
-            frmLogs.ShowDialog();
+                MessageBox.Show("Teacher set to INACTIVE.");
+                Teacher.ShowCountTeach(lblActive, lblPending, lblInactive);
+                teach.LoadDataTeacher(connectionString, dgvTeacher);
+            }
+            else { }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -271,6 +218,66 @@ namespace PROEL_PROJ
                     }
                 }
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddTeach frmAddTeach = new frmAddTeach();
+            this.Hide();
+            frmAddTeach.ShowDialog();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            frmDashboard frmDashboard = new frmDashboard();
+            this.Hide();
+            frmDashboard.ShowDialog();
+        }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            frmUpdate_Stud frmUpdate_Stud = new frmUpdate_Stud();
+            this.Hide();
+            frmUpdate_Stud.ShowDialog();
+        }
+
+        private void btnTeacher_Click(object sender, EventArgs e)
+        {
+            frmTeachers frmTeachers = new frmTeachers();
+            this.Hide();
+            frmTeachers.ShowDialog();
+        }
+
+        private void btnCourse_Click_1(object sender, EventArgs e)
+        {
+            frmCourse frmCourse = new frmCourse();
+            this.Hide();
+            frmCourse.ShowDialog();
+        }
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to Log out?", "Confirmation",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                frmLogIn logIn = new frmLogIn();
+                this.Hide();
+                logIn.ShowDialog();
+            }
+            else { }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            Teacher.SearchFieldsTeach(dgvTeacher, txtSearch.Text.Trim());
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            frmReports frmReports = new frmReports();
+            this.Hide();
+            frmReports.ShowDialog();
         }
     }
 }
